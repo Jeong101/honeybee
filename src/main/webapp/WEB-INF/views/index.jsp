@@ -1,54 +1,65 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
+        <title>HoneyBee5Sound</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/honeybee_icon.jpg" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
-        <link href="/css/styles_sidebar.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">login</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
                     </ul>
                 </div>
-            </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                </div>
-            </div>
-        </header>
-        
-        <nav class="navbar navbar-expand-lg1 navbar-dark bg-primary" id="sideNav">
+        <header class="bg-white py-5">
+        <div class="header-Box">
         <div class="logoImg-Box">
-        <img class="img-fluid img-profile rounded-circle" src="/assets/profile.jpg" alt="..." />
-        <div>
+        <img class="img-fluid img-profile" src="/assets/honeybee_logo.jpg" alt="..." />
+        </div>
+        <div class="container px-4 px-lg-5 my-5">
+            
+                <div class="text-center text-black title-Box">
+                    <h1 class="display-4 fw-bolder">HoneyBee 5 Sound</h1>
+                    <p class="lead fw-normal text-black-50 mb-0">여기도 한글 안써지나</p>
+                </div>
+        </div>
 
+</div>
+
+        <div class="memberlist-Box">
+        <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        </ul>
+        </div>
+        </header>
+        <div class = "body-Box">
+        <!--LEFT side bar-->
+        <nav class="navbar navbar-expand-lg1" id="sideNav">
         <div class="search-Box">
             <form action="">
-            <input type="text" /><input type="submit" value="search">
+            <input type="text" /><input type="submit" value="🔍">
             </form>
             </div>
 
@@ -56,20 +67,22 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
             
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+                    <li class="nav-item"><a class="menu-style" href="#about">About</a></li>
+                    <li class="nav-item"><a class="menu-style" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="menu-style" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="menu-style" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="menu-style" href="#interests">Interests</a></li>
+                    <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li>
                 </ul>
             </div>
         </nav>
         <!-- Section-->
         <section class="py-5">
+        
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
+                    
                         <div class="card h-100">
                             <!-- Product image-->
                             <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
@@ -268,6 +281,7 @@
                 </div>
             </div>
         </section>
+        </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>

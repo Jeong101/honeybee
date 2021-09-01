@@ -37,10 +37,12 @@
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
+  --bs-beige:#F5F5DC;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  --bs-beige-rgb:245,245,220;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -76,6 +78,7 @@
 }
 
 body {
+  width:100%;
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -3946,13 +3949,13 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #0a58ca;
+  color: #095ece;
 }
-.nav-link.disabled {
+ .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
-}
+} 
 
 .nav-tabs {
   border-bottom: 1px solid #dee2e6;
@@ -4075,6 +4078,7 @@ textarea.form-control-lg {
   flex-basis: 100%;
   flex-grow: 0;
   display: flex;
+  margin-right: 200px;
   justify-content: flex-end;
   align-items: center;
 }
@@ -4225,6 +4229,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .navbar-expand-lg {
+    z-index: 1;
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
@@ -4275,60 +4280,65 @@ textarea.form-control-lg {
     padding: 0;
     overflow-y: visible;
   }
-  @media (min-width: 992px) {
-    .navbar-expand-lg1 {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-    }
-    .navbar-expand-lg1 .navbar-nav {
-      flex-direction: row;
-    }
-    .navbar-expand-lg1 .navbar-nav .dropdown-menu {
-      position: absolute;
-    }
-    .navbar-expand-lg1 .navbar-nav .nav-link {
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
-    }
-    .navbar-expand-lg1 .navbar-nav-scroll {
-      overflow: visible;
-    }
-    .navbar-expand-lg1 .navbar-collapse {
-      display: flex !important;
-      flex-basis: auto;
-    }
-    .navbar-expand-lg1 .navbar-toggler {
-      display: none;
-    }
-    .navbar-expand-lg1 .offcanvas-header {
-      display: none;
-    }
-    .navbar-expand-lg1 .offcanvas {
-      position: inherit;
-      bottom: 0;
-      z-index: 1000;
-      flex-grow: 1;
-      visibility: visible !important;
-      background-color: transparent;
-      border-right: 0;
-      border-left: 0;
-      transition: none;
-      transform: none;
-    }
-    .navbar-expand-lg1 .offcanvas-top,
-  .navbar-expand-lg1 .offcanvas-bottom {
-      height: auto;
-      border-top: 0;
-      border-bottom: 0;
-    }
-    .navbar-expand-lg1 .offcanvas-body {
-      display: flex;
-      flex-grow: 0;
-      padding: 0;
-      overflow-y: visible;
-    }
+}
+
+/* Sidebar */
+
+@media (min-width: 992px) {
+  .navbar-expand-lg1 {
+    background-color: beige;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .navbar-expand-lg1 .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand-lg1 .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+  .navbar-expand-lg1 .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .navbar-expand-lg1 .navbar-nav-scroll {
+    overflow: visible;
+  }
+  .navbar-expand-lg1 .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  .navbar-expand-lg1 .navbar-toggler {
+    display: none;
+  }
+  .navbar-expand-lg1 .offcanvas-header {
+    display: none;
+  }
+  .navbar-expand-lg1 .offcanvas {
+    position: inherit;
+    bottom: 0;
+    z-index: 1000;
+    flex-grow: 1;
+    visibility: visible !important;
+    background-color: transparent;
+    border-right: 0;
+    border-left: 0;
+    transition: none;
+    transform: none;
+  }
+  .navbar-expand-lg1 .offcanvas-top,
+.navbar-expand-lg1 .offcanvas-bottom {
+    height: auto;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  .navbar-expand-lg1 .offcanvas-body {
+    display: flex;
+    flex-grow: 0;
+    padding: 0;
+    overflow-y: visible;
   }
 }
+
 @media (min-width: 1200px) {
   .navbar-expand-xl {
     flex-wrap: nowrap;
@@ -4486,6 +4496,97 @@ textarea.form-control-lg {
   padding: 0;
   overflow-y: visible;
 }
+
+#sideNav {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
+}
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+#sideNav .navbar-toggler:focus {
+  outline-color: #d48a6e;
+}
+.body-Box{
+  display: flex;
+}
+@media (min-width: 992px) {
+  #sideNav {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center; 
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 100vh;
+  }
+  #sideNav .navbar-brand {
+    display: flex;
+    margin: auto auto 0;
+    padding: 0.5rem;
+  }
+  #sideNav .navbar-collapse {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 0;
+    width: 100%;
+    margin-top : 200px;
+    margin-bottom: auto;
+  }
+  #sideNav .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item {
+    display: block;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    display: block;
+  }
+}
+
+.logoImg-Box{
+  margin : 90px 30px 30px 30px;
+  height:300px;
+  width:300px;
+  display:flex;
+  justify-content: left;
+
+}
+.logoImg-Box img{
+  margin: 0px 0px 50px 50px;
+}
+.header-Box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-Box{
+  display: flex;
+  margin-top:70px;
+}
+
+.search-Box form{
+  display:flex;
+}
+
+.menu-style{
+  color:rgb(54, 54, 54);
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 800;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  
+}
+
+/* sidebar END */
 
 .navbar-light .navbar-brand {
   color: rgba(0, 0, 0, 0.9);
@@ -7419,6 +7520,7 @@ textarea.form-control-lg {
 }
 
 .mb-5 {
+  
   margin-bottom: 3rem !important;
 }
 
@@ -7501,6 +7603,7 @@ textarea.form-control-lg {
 .px-4 {
   padding-right: 1.5rem !important;
   padding-left: 1.5rem !important;
+  display:flex;
 }
 
 .px-5 {
@@ -7534,6 +7637,7 @@ textarea.form-control-lg {
 }
 
 .py-5 {
+  width: 2000px;
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
@@ -11328,4 +11432,20 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.title-Box{
+  text-align: center;
+  margin-left: 300px;
+}
+
+.memberlist-Box ul{
+  list-style: none;
+  justify-content: center;
+  display: flex;
+  flex-direction:row;
+}
+
+.memberlist-Box li{
+  margin : 0px 10px 0px 10px;
 }
