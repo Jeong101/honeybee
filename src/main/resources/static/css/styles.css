@@ -531,6 +531,7 @@ progress {
   font-size: calc(1.475rem + 2.7vw);
   font-weight: 300;
   line-height: 1.2;
+  
 }
 @media (min-width: 1200px) {
   .display-4 {
@@ -668,7 +669,7 @@ progress {
   }
 }
 .row {
-  --bs-gutter-x: 1.5rem;
+  --bs-gutter-x: 1rem;
   --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
@@ -684,7 +685,10 @@ progress {
   padding-left: calc(var(--bs-gutter-x) * .5);
   margin-top: var(--bs-gutter-y);
 }
-
+.posts-Box{
+  display:flex;
+  width:50%;
+}
 .col {
   flex: 1 0 0%;
 }
@@ -4078,8 +4082,8 @@ textarea.form-control-lg {
   flex-basis: 100%;
   flex-grow: 0;
   display: flex;
-  margin-right: 200px;
-  justify-content: flex-end;
+  
+  justify-content: center;
   align-items: center;
 }
 
@@ -4498,6 +4502,7 @@ textarea.form-control-lg {
 }
 
 #sideNav {
+  
   padding-left: 1rem;
   padding-right: 1rem;
   
@@ -4564,6 +4569,7 @@ textarea.form-control-lg {
 }
 .header-Box{
   display: flex;
+  height:20rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -7520,7 +7526,7 @@ textarea.form-control-lg {
 }
 
 .mb-5 {
-  
+  width:450px;
   margin-bottom: 3rem !important;
 }
 
@@ -7573,7 +7579,8 @@ textarea.form-control-lg {
 }
 
 .p-4 {
-  padding: 1.5rem !important;
+  width:400px;
+  padding: 1rem !important;
 }
 
 .p-5 {
@@ -7637,9 +7644,9 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  width: 2000px;
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  width: 100%;
+  /* padding-top: 1rem !important; */
+  padding-bottom: 1rem !important;
 }
 
 .pt-0 {
