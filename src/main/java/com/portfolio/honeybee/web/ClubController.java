@@ -19,18 +19,6 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ClubController {
 
-    private final ClubRepository clubRepository;
-    // private final Session session;
-
-    @GetMapping("/")
-    public String home(Model model) {
-
-        List<Club> clubsEntity = clubRepository.findAll();
-
-        // model.addAttribute("clubsEntity", clubsEntity);
-        return "index";
-    }
-
     @GetMapping("/manageclub")
     public String manageClub() {
         return "manager/manageClub";

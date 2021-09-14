@@ -14,6 +14,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  
     </head>
 
     
@@ -27,12 +29,27 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <%-- 로그인 한 회원이 관리자일 경우에만 관리메뉴 표시 --%>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manageclub">동호회관리</a></li>
+                    
                     <%-- 로그인 후 동호회생성 메뉴 표시 --%>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">동호회 생성</a></li>
                     <%-- 로그인 후 동호회가입 메뉴 표시 --%>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">동호회 가입</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">로그인</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
+                    
+                    <li class="nav-item">
+                        <c:choose>
+                            <c:when test="${sessionScope.userEntity != null}">
+                                <div id="name">${sessionScope.userEntity.name}</div>
+                                <a href="#" onclick="signOut();">Sign out</a>  
+                            </c:when>
+                            <c:otherwise>
+                                <div id="customBtn" class="g-signin2" data-onsuccess="onSignIn"></div>
+                                <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
+                            </c:otherwise>
+                        </c:choose>                        
+                    </li>    
+    
+                    
+                    
                 </ul>
             </div>
         </nav>

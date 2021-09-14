@@ -20,7 +20,6 @@ public class User {
 
     private String email; // email
     private String name; // 이름
-    private String phoneNum; // 핸드폰 번호
 
     @ManyToOne
     @JoinColumn(name = "clubId")
