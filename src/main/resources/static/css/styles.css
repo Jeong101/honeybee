@@ -3943,7 +3943,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #0d6efd;
+  color: #000000;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -4016,8 +4016,13 @@ textarea.form-control-lg {
   text-align: center;
 }
 
+.nav-item{
+  width: 120px;
+  margin-top: 3px;
+}
+
 .nav-fill .nav-item .nav-link,
-.nav-justified .nav-item .nav-link {
+.nav-justified .nav-link {
   width: 100%;
 }
 
@@ -11461,14 +11466,41 @@ textarea.form-control-lg {
   display: inline-block;
   background: white;
   color: #444;
-  width: 190px;
+  width: 122px;
   border-radius: 5px;
   border: thin solid #888;
   box-shadow: 1px 1px 1px grey;
   white-space: nowrap;
+  margin-right: 10px;
 }
 
 /*HEADER*/
+
+#name{
+  margin: 7px 0px 7px 7px;
+  width: 100px;
+}
+
+.nav-item-signOut{
+  margin: 9px 0px 6px 0px;
+  width: 100px;
+}
+
+.nav-item-signOut a{
+  color: rgb(119, 119, 119);
+}
+
+.nav-item-join{
+  margin: 3px 7px 5px 15px;
+  width: 100px;
+}
+
+
+.signOut{
+  margin-top: 13px;
+  text-decoration: none;
+}
+
 #customBtn:hover {
   cursor: pointer;
 }

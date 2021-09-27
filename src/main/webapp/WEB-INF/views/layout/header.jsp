@@ -38,12 +38,12 @@
                     <li class="nav-item">
                         <c:choose>
                             <c:when test="${sessionScope.userEntity != null}">
-                                <div id="name">${sessionScope.userEntity.name}</div>
-                                <a href="#" onclick="signOut();">Sign out</a>  
+                                <div id="name">${sessionScope.userEntity.name} 회원</div>
+                                <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>
                             <c:otherwise>
                                 <div id="customBtn" class="g-signin2" data-onsuccess="onSignIn"></div>
-                                <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
+                                <li class="nav-item-join"><a class="nav-link" href="#!">회원가입</a></li>
                             </c:otherwise>
                         </c:choose>                        
                     </li>    
