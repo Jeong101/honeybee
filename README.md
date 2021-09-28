@@ -12,7 +12,7 @@ CREATE USER 'honeybee' IDENTIFIED BY 'honeybee123';
 GRANT ALL PRIVILEGES ON *.* TO 'honeybee'@'%';
 ```
 
-# 더미데이터
+# club dummy data
 ``` sql
 INSERT INTO club(id, club_name) VALUES(1, 'honeybee');
 INSERT INTO club(id, club_name) VALUES(2, '5sound');

@@ -97,7 +97,7 @@
                             <li class="nav-item"><a class="menu-style" href="#interests">Interests</a></li>
                             <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li> --%>
                             <c:forEach var="club" items="${clubsEntity}">
-                            <li class="nav-item"><a class="menu-style" href="#awards">${club.clubname}</a></li>
+                            <li class="nav-item"><a class="menu-style" href="#awards">${club.clubName}</a></li>
                             </c:forEach>
                         </ul>
                     </div>
