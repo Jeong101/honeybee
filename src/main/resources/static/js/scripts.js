@@ -60,3 +60,7 @@
           }
         });
     } 
+
+    function home(){
+      location.href="/";
+    }

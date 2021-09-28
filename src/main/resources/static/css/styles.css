@@ -4017,11 +4017,11 @@ textarea.form-control-lg {
 }
 
 .nav-item{
-  width: 120px;
+  width: 110px;
   margin-top: 3px;
 }
 
-.nav-fill .nav-item .nav-link,
+.nav-fill .nav-link,
 .nav-justified .nav-link {
   width: 100%;
 }
@@ -4572,6 +4572,21 @@ textarea.form-control-lg {
 .logoImg-Box img{
   margin: 0px 0px 50px 50px;
 }
+
+.logoImg-Box img:hover{
+  cursor: pointer;
+}
+
+.blog-title{
+  text-decoration: none;
+  color: black;
+}
+
+.blog-title :hover{
+  cursor: pointer;
+  color: #000;
+}
+
 .header-Box{
   display: flex;
   height:20rem;
@@ -11472,6 +11487,7 @@ textarea.form-control-lg {
   box-shadow: 1px 1px 1px grey;
   white-space: nowrap;
   margin-right: 10px;
+  margin: 0px 8px 0px 6px;
 }
 
 /*HEADER*/
@@ -11491,10 +11507,13 @@ textarea.form-control-lg {
 }
 
 .nav-item-join{
-  margin: 3px 7px 5px 15px;
+  margin: 3px 0px 5px 30px;
   width: 100px;
 }
 
+.nav-item-home{
+  margin:3px 10px;
+}
 
 .signOut{
   margin-top: 13px;
