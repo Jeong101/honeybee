@@ -23,4 +23,9 @@ public class ClubController {
     public String manageClub() {
         return "manager/manageClub";
     }
+
+    @GetMapping("/createClubModal")
+    public String createClubModal() {
+        return "manager/createClubModal";
+    }
 }

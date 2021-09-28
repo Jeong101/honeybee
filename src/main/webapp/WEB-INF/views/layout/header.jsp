@@ -14,6 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/club.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   
     </head>
@@ -31,9 +32,9 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manageclub">동호회관리</a></li>
                     
                     <%-- 로그인 후 동호회생성 메뉴 표시 --%>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">동호회 생성</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/createClubModal" >동호회 생성</a></li>
                     <%-- 로그인 후 동호회가입 메뉴 표시 --%>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">동호회 가입</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" >동호회 가입</a></li>
                     
                     <li class="nav-item">
                         <c:choose>
