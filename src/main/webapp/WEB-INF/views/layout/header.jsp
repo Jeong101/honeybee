@@ -28,8 +28,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item-home"><a class="nav-link active" aria-current="page" href="/">HOME</a></li>
                     <%-- 로그인 한 회원이 관리자일 경우에만 관리메뉴 표시 --%>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manageclub">동호회관리</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manageclub">동호회 관리</a></li>
                     
                     <%-- 로그인 후 동호회생성 메뉴 표시 --%>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/createClubModal" >동호회 생성</a></li>
@@ -58,11 +59,11 @@
         <header class="bg-white py-5">
             <div class="header-Box">
                 <div class="logoImg-Box">
-                    <img class="img-fluid img-profile" src="/assets/honeybee_logo.jpg" alt="..." />
+                    <img class="img-fluid img-profile" src="/assets/honeybee_logo.jpg" onclick="home()" alt="..." />
                 </div> <!-- end logoImg-Box-->
                 <div class="container px-4 px-lg-5 my-5">
                     <div class="text-center text-black title-Box">
-                        <h1 class="display-4 fw-bolder">HoneyBee 5 Sound</h1>
+                        <a class="blog-title" href="/"><h1 class="display-4 fw-bolder">HoneyBee 5 Sound</h1></a>
                     </div> <!-- end title-Box-->
                  </div><!-- end px-4-->
             </div> <!--end header-Box -->
@@ -98,7 +99,7 @@
                             <li class="nav-item"><a class="menu-style" href="#interests">Interests</a></li>
                             <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li> --%>
                             <c:forEach var="club" items="${clubsEntity}">
-                            <li class="nav-item"><a class="menu-style" href="#awards">${club.clubName}</a></li>
+                                <li class="nav-item"><a class="menu-style" href="#awards">${club.clubName}</a></li>
                             </c:forEach>
                         </ul>
                     </div>

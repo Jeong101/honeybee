@@ -59,6 +59,14 @@
             alert("ERRO");
           }
         });
+<<<<<<< HEAD
     }
 
     
+=======
+    } 
+
+    function home(){
+      location.href="/";
+    }
+>>>>>>> d818c85bb85aa96c883f0c0db76a7da80fe0c82b
