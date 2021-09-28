@@ -9,8 +9,8 @@ import com.portfolio.honeybee.domain.club.ClubRepository;
 import com.portfolio.honeybee.domain.user.User;
 import com.portfolio.honeybee.domain.user.UserRepository;
 
-import org.apache.maven.model.Model;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,6 +50,7 @@ public class UserController {
 
     @GetMapping("/")
     public String home(Model model) {
+        model.addAttribute("clubsEntity", clubRepository.findAll());
         return "index";
     }
 

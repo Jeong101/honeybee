@@ -90,12 +90,15 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <div>
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="menu-style" href="#about">About</a></li>
+                            <%-- <li class="nav-item"><a class="menu-style" href="#about">About</a></li>
                             <li class="nav-item"><a class="menu-style" href="#experience">Experience</a></li>
                             <li class="nav-item"><a class="menu-style" href="#education">Education</a></li>
                             <li class="nav-item"><a class="menu-style" href="#skills">Skills</a></li>
                             <li class="nav-item"><a class="menu-style" href="#interests">Interests</a></li>
-                            <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li>
+                            <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li> --%>
+                            <c:forEach var="club" items="${clubsEntity}">
+                            <li class="nav-item"><a class="menu-style" href="#awards">${club.clubname}</a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>  <!-- end navbar-collapse-->

@@ -8,3 +8,8 @@ CREATE DATABASE honeybee;
 CREATE USER 'honeybee' IDENTIFIED BY 'honeybee123';
 
 GRANT ALL PRIVILEGES ON *.* TO 'honeybee'@'%';
+
+# 더미데이터
+INSERT INTO club(id, club_name) VALUES(1, 'honeybee');
+INSERT INTO club(id, club_name) VALUES(2, '5sound');
+
