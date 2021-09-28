@@ -11511,10 +11511,6 @@ textarea.form-control-lg {
   width: 100px;
 }
 
-.nav-item-home{
-  margin:3px 10px;
-}
-
 .signOut{
   margin-top: 13px;
   text-decoration: none;
@@ -11543,4 +11539,7 @@ span.buttonText {
   font-weight: bold;
   /* Use the Roboto font that is loaded in the <head> */
   font-family: 'Roboto', sans-serif;
+}
+.nav-item-hover:hover{
+  cursor:pointer;
 }

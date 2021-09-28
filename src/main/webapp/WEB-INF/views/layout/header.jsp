@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="../manager/createClubModal.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,6 +22,7 @@
 
     
     <body>
+    
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -28,16 +30,17 @@
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item-home"><a class="nav-link active" aria-current="page" href="/">HOME</a></li>
+                    <li class="nav-item-hover"><a class="nav-link active" aria-current="page" href="/">HOME</a></li>
                     <%-- 로그인 한 회원이 관리자일 경우에만 관리메뉴 표시 --%>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manageclub">동호회 관리</a></li>
+                    <li class="nav-item-hover"><a class="nav-link active" aria-current="page" href="/manageclub">동호회 관리</a></li>
                     
                     <%-- 로그인 후 동호회생성 메뉴 표시 --%>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/createClubModal" >동호회 생성</a></li>
+                    <!--<li class="nav-item"><input type="button" value="동호회 생성" id="btn-modal"/></li>-->
+                    <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal">동호회 생성</a></li>
                     <%-- 로그인 후 동호회가입 메뉴 표시 --%>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" >동호회 가입</a></li>
+                    <li class="nav-item-hover"><a class="nav-link active" aria-current="page" href="#!" >동호회 가입</a></li>
                     
-                    <li class="nav-item">
+                    <li class="nav-item-hover">
                         <c:choose>
                             <c:when test="${sessionScope.userEntity != null}">
                                 <div id="name">${sessionScope.userEntity.name} 회원</div>
