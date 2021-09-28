@@ -4,9 +4,10 @@
     position: absolute;
     left: 0;
     top: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
+    z-index:10;
     justify-content: center;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -16,7 +17,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 #modal .modal-window {
-    background: rgba( 69, 139, 197, 0.70 );
+    background: white;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
@@ -24,15 +25,16 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 400px;
     height: 500px;
-    position: relative;
+    position: relative;  
     top: -100px;
     padding: 10px;
 }
 #modal .title {
-    padding-left: 10px;
+    padding-left: 100px;
     display: inline;
     text-shadow: 1px 1px 2px gray;
-    color: white;
+    
+    color: black;
     
 }
 #modal .title h2 {
@@ -41,15 +43,136 @@
 #modal .close-area {
     display: inline;
     float: right;
-    padding-right: 10px;
+    margin-top:8px;
+    padding-right: 15px;
     cursor: pointer;
     text-shadow: 1px 1px 2px gray;
-    color: white;
+    color: black;
 }
 
 #modal .content {
     margin-top: 20px;
     padding: 0px 10px;
     text-shadow: 1px 1px 2px gray;
-    color: white;
+    color: black;
 }
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family:sans-serif;
+  
+  }
+  
+  body {
+    background-image:#34495e;
+  }
+  
+  .joinForm {
+    position:absolute;
+    width:400px;
+    height:400px;
+    padding: 30px, 20px;
+    background-color:white;
+    text-align:center;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+  }
+  
+  .joinForm h2 {
+    text-align: center;
+    margin: 30px;
+  }
+  
+  .textForm {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+  
+  
+  .clubName {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .pw {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .name {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .email {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .nickname {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .cellphoneNo {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .btn {
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,#81ecec,#e96bd8,#81ecec);
+    background-position: left;
+    background-size: 200%;
+    color:white;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
+  
+  .btn:hover {
+    background-position: right;
+  }
