@@ -533,6 +533,10 @@ progress {
   line-height: 1.2;
   
 }
+
+.display-4:hover{
+  color: #000;
+}
 @media (min-width: 1200px) {
   .display-4 {
     font-size: 3.5rem;
@@ -4584,7 +4588,7 @@ textarea.form-control-lg {
 
 .blog-title :hover{
   cursor: pointer;
-  color: #000;
+  color: rgb(0, 0, 0);
 }
 
 .header-Box{
@@ -4694,6 +4698,7 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  
 }
 .card > hr {
   margin-right: 0;
@@ -4721,6 +4726,7 @@ textarea.form-control-lg {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+  
 }
 
 .card-title {
@@ -4754,6 +4760,7 @@ textarea.form-control-lg {
   padding: 0.5rem 1rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
+  
 }
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
@@ -7548,6 +7555,8 @@ textarea.form-control-lg {
 .mb-5 {
   width:450px;
   margin-bottom: 3rem !important;
+  height: 350px;
+  
 }
 
 .mb-auto {
@@ -7601,6 +7610,7 @@ textarea.form-control-lg {
 .p-4 {
   width:400px;
   padding: 1rem !important;
+  
 }
 
 .p-5 {
@@ -11542,4 +11552,14 @@ span.buttonText {
 }
 .nav-item-hover:hover{
   cursor:pointer;
+}
+
+.nav-item-hover {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item-home{
+  margin-right: 10px;
 }
