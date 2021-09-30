@@ -34,6 +34,8 @@
                             </div> <!-- end card-body -->
                             <!-- Product actions-->
                             
+                                    
+                               
                         </div> <!-- end card -->
                     </div> <!-- end mb-5 -->          
                 </c:forEach>
