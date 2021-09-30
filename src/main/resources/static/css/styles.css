@@ -7547,6 +7547,7 @@ textarea.form-control-lg {
 
 .mb-5 {
   width:450px;
+  height: 350px;
   margin-bottom: 3rem !important;
 }
 
@@ -7600,6 +7601,7 @@ textarea.form-control-lg {
 
 .p-4 {
   width:400px;
+  height:30%;
   padding: 1rem !important;
 }
 

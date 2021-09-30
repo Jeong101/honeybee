@@ -18,7 +18,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">영상제목</h5>
+                                    <h5>영상제목</h5>
                                     <!-- Product reviews-->
                                     <%-- <div class="d-flex justify-content-center small text-warning mb-2">
                                         <div class="bi-star-fill"></div>
@@ -28,14 +28,12 @@
                                         <div class="bi-star-fill"></div>
                                     </div> --%>
                                     <!-- Product price-->
-                                    
+                                    <h5>작성자</h5>
+                                    <h5>날짜</h5>
                                 </div>
                             </div> <!-- end card-body -->
                             <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">작성자</div>
-                                <div class="text-center">날짜</div>
-                            </div> <!-- end card-footer --> 
+                            
                         </div> <!-- end card -->
                     </div> <!-- end mb-5 -->          
                 </c:forEach>
