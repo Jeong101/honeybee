@@ -1,13 +1,10 @@
 package com.portfolio.honeybee.web;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
-import com.portfolio.honeybee.domain.club.Club;
-import com.portfolio.honeybee.domain.club.ClubRepository;
-import com.portfolio.honeybee.domain.user.User;
 import com.portfolio.honeybee.domain.user.UserRepository;
+import com.portfolio.honeybee.domain.user.Guest;
+import com.portfolio.honeybee.domain.user.GuestRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,15 +20,15 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
     private final HttpSession session;
-    private final UserRepository userRepository;
-    private final ClubRepository clubRepository;
+    private final GuestRepository userRepository;
+    private final UserRepository clubRepository;
     // private final Session session;
 
     @PostMapping("/auth/login")
-    public @ResponseBody String googleLogin(@RequestBody User user) {
+    public @ResponseBody String googleLogin(@RequestBody Guest user) {
         System.out.println(user.getEmail() + "-----------------------------------------");
         System.out.println(user.getName() + "=======================================");
-        User userEntity = userRepository.mfindByEmail(user.getEmail());
+        Guest userEntity = userRepository.mfindByEmail(user.getEmail());
 
         if (userEntity == null) {
             System.out.println("NULLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");

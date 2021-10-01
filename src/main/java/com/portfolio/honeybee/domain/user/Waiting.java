@@ -1,12 +1,10 @@
-package com.portfolio.honeybee.domain.club;
+package com.portfolio.honeybee.domain.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import com.portfolio.honeybee.domain.user.User;
 
 import lombok.Data;
 
@@ -18,8 +16,8 @@ public class Waiting {
     private int id;
 
     @ManyToOne
-    private User user;
+    private Guest user;
 
     @ManyToOne
-    private Club club;
+    private User club;
 }

@@ -1,6 +1,16 @@
-const modal = document.getElementById("modal")
+//let modal = document.getElementById("modal")
 
-function modalOn() {
+//const modal = null;
+
+function setWindow(id){
+     let modal = document.getElementById("modal")
+     modal = document.getElementById(id);
+ }
+
+function modalOn(id) {
+    alert(id+"=============");
+    modal = id;
+    alert(modal+"=============");
     modal.style.display = "flex"
 }
 
@@ -12,11 +22,20 @@ function modalOff() {
     modal.style.display = "none"
 }
 
+function setId(id){
 
-const btnModal = document.getElementById("btn-modal")
-btnModal.addEventListener("click", e => {
-    modalOn()
-})
+    const btnModal = document.getElementById(id)
+    
+    btnModal.addEventListener("click", e => {
+        modalOn(id)
+    })
+    
+}
+
+// const btnModal = document.getElementById("btn-modal")
+
+
+
 
 const closeBtn = modal.querySelector(".close-area")
 closeBtn.addEventListener("click", e => {

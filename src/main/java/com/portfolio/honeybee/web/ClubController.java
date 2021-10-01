@@ -6,10 +6,10 @@ import javax.persistence.metamodel.SetAttribute;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
-import com.portfolio.honeybee.domain.club.Club;
-import com.portfolio.honeybee.domain.club.ClubRepository;
 import com.portfolio.honeybee.domain.user.User;
 import com.portfolio.honeybee.domain.user.UserRepository;
+import com.portfolio.honeybee.domain.user.Guest;
+import com.portfolio.honeybee.domain.user.GuestRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +22,8 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ClubController {
 
-    private final ClubRepository clubRepository;
-    private final UserRepository userRepository;
+    private final UserRepository clubRepository;
+    private final GuestRepository userRepository;
     private final HttpSession session;
 
     @GetMapping("/manageclub")
@@ -41,16 +41,16 @@ public class ClubController {
 
     @PostMapping("/doJoin")
     public String createClub(String clubName, String email) {
-        Club clubNameChk = clubRepository.mfindByclubName(clubName);
-        if (clubNameChk == null) {
-            int userId = userRepository.mfindIdByEmail(email);
-            Club clubEntity = new Club();
-            clubEntity.setClubName(clubName);
-            clubEntity.setUserId(userId);
-            clubRepository.save(clubEntity);
-        } else {
+        // User clubNameChk = clubRepository.mfindByclubName(clubName);
+        // if (clubNameChk == null) {
+        // int userId = userRepository.mfindIdByEmail(email);
+        // User clubEntity = new User();
+        // clubEntity.setClubName(clubName);
+        // clubEntity.setUserId(userId);
+        // clubRepository.save(clubEntity);
+        // } else {
 
-        }
+        // }
         return "redirect:/";
     }
 }

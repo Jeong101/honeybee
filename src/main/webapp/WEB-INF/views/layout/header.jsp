@@ -41,8 +41,8 @@
                             <c:when test="${sessionScope.userEntity != null}">  
                                 <%-- 로그인 후 동호회생성 메뉴 표시 --%>
                                 <%-- 로그인 후 동호회가입 메뉴 표시 --%>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal">동호회 가입</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal">동호회 생성</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="joinClub" onclick="setId(`joinClub`)">동호회 가입</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="createClub" onclick="setId(`createClub`)">동호회 생성</a></li>
                                 <div id="name">${sessionScope.userEntity.name} 회원</div>
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>
@@ -71,15 +71,6 @@
                  </div><!-- end px-4-->
             </div> <!--end header-Box -->
 
-            <div class="memberlist-Box">
-                <ul>
-                    <li>A</li>
-                    <li>B</li>
-                    <li>C</li>
-                    <li>D</li>
-                    <li>E</li>
-                </ul>
-            </div>  <!-- end memberlist-Box-->
         </header>
 
         <div class = "body-Box">

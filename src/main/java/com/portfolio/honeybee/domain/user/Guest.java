@@ -10,17 +10,14 @@ import lombok.Data;
 
 @Data
 @Entity
-public class User {
+public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id; // PK
 
-    @Column(nullable = false)
-    private String username; // 사용자이름
-    @Column(nullable = false)
-    private String email;
+    private String email; // email
+    private String name; // 이름
 
-    @Column(columnDefinition = "tinyint(1) default 1")
+    @Column(nullable = false, columnDefinition = "boolean default false")
     private boolean member; // 멤버 등급
-
 }

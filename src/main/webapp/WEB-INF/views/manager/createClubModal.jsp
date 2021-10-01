@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   <div id="modal" class="modal-overlay">
     <div class="modal-window">
-      <form action="/doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
+      <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
         <div class="close-area">X</div>                                                                          
         <h2>소모임생성</h2>
         <div class="textForm">
