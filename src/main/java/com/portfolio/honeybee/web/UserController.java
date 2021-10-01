@@ -47,7 +47,7 @@ public class UserController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("clubsEntity", clubRepository.findAll());
+        model.addAttribute("usersEntity", userRepository.findAll());
         return "index";
     }
 

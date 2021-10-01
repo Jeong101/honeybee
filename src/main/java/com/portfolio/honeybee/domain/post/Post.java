@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.portfolio.honeybee.domain.user.User;
+import com.portfolio.honeybee.domain.user.Guest;
 
 import lombok.Data;
 
@@ -21,5 +21,5 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User user; // FK
+    private Guest user; // FK
 }

@@ -18,6 +18,6 @@ public class Guest {
     private String email; // email
     private String name; // 이름
 
-    @Column(nullable = false, columnDefinition = "boolean default false")
+    @Column(nullable = false, columnDefinition = "boolean default 1")
     private boolean member; // 멤버 등급
 }
