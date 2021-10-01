@@ -8,8 +8,6 @@ import javax.websocket.Session;
 
 import com.portfolio.honeybee.domain.user.User;
 import com.portfolio.honeybee.domain.user.UserRepository;
-import com.portfolio.honeybee.domain.user.Guest;
-import com.portfolio.honeybee.domain.user.GuestRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 public class ClubController {
 
     private final UserRepository clubRepository;
-    private final GuestRepository userRepository;
     private final HttpSession session;
 
     @GetMapping("/manageclub")

@@ -16,8 +16,5 @@ public class Waiting {
     private int id;
 
     @ManyToOne
-    private Guest user;
-
-    @ManyToOne
-    private User club;
+    private User user;
 }
