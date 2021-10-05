@@ -20,7 +20,7 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column(columnDefinition = "tinyint(1) default 1")
+    @Column(columnDefinition = "tinyint(1) default 0")
     private boolean member; // 멤버 등급
 
 }

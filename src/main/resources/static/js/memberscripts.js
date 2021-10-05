@@ -8,9 +8,9 @@ function setWindow(id){
  }
 
 function modalOn(id) {
-    alert(id+"=============");
+    
     modal = id;
-    alert(modal+"=============");
+    
     modal.style.display = "flex"
 }
 

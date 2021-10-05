@@ -24,8 +24,7 @@ public class UserController {
 
     @PostMapping("/auth/login")
     public @ResponseBody String googleLogin(@RequestBody User user) {
-        System.out.println(user.getEmail() + "-----------------------------------------");
-        System.out.println(user.getUsername() + "=======================================");
+
         User userEntity = userRepository.mfindByEmail(user.getEmail());
 
         if (userEntity == null) {
@@ -35,8 +34,6 @@ public class UserController {
         } else {
             session.setAttribute("userEntity", userEntity);
         }
-        System.out.println(user.getEmail() + "ooooooooooooooooooooooooooooooooooooooo");
-        System.out.println(user.getUsername() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         System.out.println(session.getAttribute("userEntity"));
         return "OK";

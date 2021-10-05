@@ -7,7 +7,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script src="js/clubscripts.js"></script>
+        <script src="js/memberscripts.js"></script>
         <!-- google API -->
         <script src="https://apis.google.com/js/api:client.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>

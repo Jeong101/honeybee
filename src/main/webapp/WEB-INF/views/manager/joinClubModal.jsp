@@ -15,7 +15,7 @@
           <input name="email" type="text" class="email" value="${sessionScope.userEntity.email}" readonly="readonly">
         </div>
         <div class="textForm">
-          <input name="nickname" type="text" class="nickname" value="${sessionScope.userEntity.name}" readonly="readonly">
+          <input name="nickname" type="text" class="nickname" value="${sessionScope.userEntity.username}" readonly="readonly">
         </div>
         
         <input type="submit" class="btn" value="J O I N"/>

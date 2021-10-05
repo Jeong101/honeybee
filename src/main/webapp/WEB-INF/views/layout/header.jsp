@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@include file="../manager/createClubModal.jsp"%>
+<%@include file="../manager/registMemberModal.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,23 +32,20 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item-home"><a class="nav-link active" aria-current="page" href="/">HOME</a></li>
                     <%-- 로그인 한 회원이 관리자일 경우에만 관리메뉴 표시 --%>
-                    <li class="nav-item-hover"><a class="nav-link active" aria-current="page" href="/manageclub">동호회 관리</a></li>
                     
                     <!--<li class="nav-item"><input type="button" value="동호회 생성" id="btn-modal"/></li>-->
 
                     
                         <c:choose>
                             <c:when test="${sessionScope.userEntity != null}">  
-                                <%-- 로그인 후 동호회생성 메뉴 표시 --%>
-                                <%-- 로그인 후 동호회가입 메뉴 표시 --%>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="joinClub" onclick="setId(`joinClub`)">동호회 가입</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="createClub" onclick="setId(`createClub`)">동호회 생성</a></li>
-                                <div id="name">${sessionScope.userEntity.name} 회원</div>
+                                <%-- 관리자한테만 표시 --%>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="joinClub" onclick="setId(`joinClub`)">회원관리</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="registMember" onclick="setId(`registMember`)">회원가입</a></li>
+                                <div id="name">게스트:${sessionScope.userEntity.username} 님</div>
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>
                             <c:otherwise>
                                 <div id="customBtn" class="g-signin2" data-onsuccess="onSignIn"></div>
-                                <li class="nav-item-join"><a class="nav-link" href="#!">회원가입</a></li>
                             </c:otherwise>
                         </c:choose>                        
                     </li>    

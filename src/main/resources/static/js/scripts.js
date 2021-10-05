@@ -39,7 +39,7 @@
         console.log('Full Name: ' + profile.getName());
         console.log('Email: ' + profile.getEmail());
           let user = {
-            name : profile.getName(),
+            username : profile.getName(),
             email : profile.getEmail()
           };
 
@@ -51,12 +51,13 @@
             body:JSON.stringify(user)
           });
           let parseResponse = await googleInfo.text();
-          console.log(parseResponse);
+          
+          
 
           if(parseResponse === "OK"){
             location.href="/";
           }else{
-            alert("ERRO");
+            alert("ERROR");
           }
         });
     } 
