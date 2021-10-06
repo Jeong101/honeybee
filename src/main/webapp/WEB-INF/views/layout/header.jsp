@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@include file="../manager/registMemberModal.jsp"%>
+
+        <%@include file="../manager/registMemberModal.jsp"%>
+  <%@include file="../manager/manageMemberModal.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,9 +17,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
-        <link href="/css/club.css" rel="stylesheet" />
+        <link href="/css/registmember.css" rel="stylesheet" />
+
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-  
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     </head>
 
     
@@ -32,15 +36,15 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item-home"><a class="nav-link active" aria-current="page" href="/">HOME</a></li>
                     <%-- 로그인 한 회원이 관리자일 경우에만 관리메뉴 표시 --%>
-                    
                     <!--<li class="nav-item"><input type="button" value="동호회 생성" id="btn-modal"/></li>-->
-
+                    
                     
                         <c:choose>
                             <c:when test="${sessionScope.userEntity != null}">  
                                 <%-- 관리자한테만 표시 --%>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="joinClub" onclick="setId(`joinClub`)">회원관리</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="registMember" onclick="setId(`registMember`)">회원가입</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1">회원관리</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal">회원가입</a></li>
+                                
                                 <div id="name">게스트:${sessionScope.userEntity.username} 님</div>
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>

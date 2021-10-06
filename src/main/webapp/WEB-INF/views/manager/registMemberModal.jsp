@@ -3,12 +3,12 @@
     <div class="modal-window">
       <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
         <div class="close-area">X</div>                                                                          
-        <h2>소모임생성</h2>
+        <h2>회원가입</h2>
         <div class="textForm">
-          <input name="clubName" type="text" class="email" placeholder="소모임명 입력" required>
+          <input name="clubName" type="text" class="email" placeholder="회원명 입력" required>
         </div>
         <div>
-          <h4>모임장 정보</h4>
+          <h4>회원 정보</h4>
         </div>
         
           <div class="textForm">
