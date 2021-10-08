@@ -4,19 +4,29 @@
       <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
         <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                          
         <h2>회원관리</h2>
-        <div class="textForm">
-          <input name="clubName" type="text" class="email" placeholder="회원명 입력" required>
-        </div>
-        <div>
-          <h4>회원 정보</h4>
-        </div>
+
+        <div class="modal_container">
+
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">메뉴_하나</li>
+		<li class="tab-link" data-tab="tab-2">메뉴_둘</li>
+		<li class="tab-link" data-tab="tab-3">메뉴_셋</li>
+	</ul>
+
+	<div id="tab-1" class="tab-content current">
+---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ----
+	</div>
+	<div id="tab-2" class="tab-content">
+---- ---- ★------ ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ★-- ---- ---- ------★ ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- ★------ ---- ---- ---- ----
+	</div>
+	<div id="tab-3" class="tab-content">
+---- ★-- -------- ---- ---- ---- -★- ---- ---- -------- ---- -★- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- --★ -------- ★-- ---- ---- ---- ---- ---- -------- ---- ---- --★ ---- ---- ---- -------- ---- ---- ---- --★
+	</div>
+
+</div>
         
-          <div class="textForm">
-          <input name="email" type="text" class="email" value="${sessionScope.userEntity.email}" readonly="readonly">
-        </div>
-        <div class="textForm">
-          <input name="nickname" type="text" class="nickname" value="${sessionScope.userEntity.username}" readonly="readonly">
-        </div>
+          
+        
         
         <input type="submit" class="btn" value="J O I N"/>
       </form>
