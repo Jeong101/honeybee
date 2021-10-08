@@ -3,6 +3,7 @@ package com.portfolio.honeybee.web;
 import javax.servlet.http.HttpSession;
 
 import com.portfolio.honeybee.domain.user.UserRepository;
+
 import com.portfolio.honeybee.domain.user.User;
 
 import org.springframework.stereotype.Controller;
@@ -20,14 +21,15 @@ public class UserController {
 
     private final HttpSession session;
     private final UserRepository userRepository;
+
     // private final Session session;
 
     @PostMapping("/auth/login")
     public @ResponseBody String googleLogin(@RequestBody User user) {
-
         User userEntity = userRepository.mfindByEmail(user.getEmail());
 
         if (userEntity == null) {
+
             userRepository.save(user);
             userEntity = userRepository.mfindByEmail(user.getEmail());
             session.setAttribute("userEntity", userEntity);

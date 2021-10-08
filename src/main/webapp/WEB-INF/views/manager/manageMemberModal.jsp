@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  <div id="modal" class="modal-overlay">
+  <div id="modal1" class="modal-overlay">
     <div class="modal-window">
       <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
-        <div class="close-area">X</div>                                                                          
+        <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                          
         <h2>회원관리</h2>
         <div class="textForm">
           <input name="clubName" type="text" class="email" placeholder="회원명 입력" required>

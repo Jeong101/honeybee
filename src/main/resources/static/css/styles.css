@@ -4299,7 +4299,7 @@ textarea.form-control-lg {
 
 @media (min-width: 992px) {
   .navbar-expand-lg1 {
-    background-color: beige;
+    background-color: hsl(203, 75%, 94%);
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
@@ -4586,7 +4586,8 @@ textarea.form-control-lg {
   color: black;
 }
 
-.blog-title :hover{
+.blog-title:hover{
+  text-decoration: none;
   cursor: pointer;
   color: rgb(0, 0, 0);
 }
@@ -11506,11 +11507,11 @@ textarea.form-control-lg {
 
 #name{
   margin: 7px 0px 7px 7px;
-  width: 100px;
+  width: 160px;
 }
 
 .nav-item-signOut{
-  margin: 9px 0px 6px 0px;
+  margin: 9px 0px 6px 20px;
   width: 100px;
 }
 

@@ -26,7 +26,6 @@
 
     
     <body>
-    
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -42,10 +41,10 @@
                         <c:choose>
                             <c:when test="${sessionScope.userEntity != null}">  
                                 <%-- 관리자한테만 표시 --%>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1">회원관리</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal">회원가입</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1" href="javascript:openModal('modal1');">회원관리</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">회원가입</a></li>
                                 
-                                <div id="name">게스트:${sessionScope.userEntity.username} 님</div>
+                                <div id="name">게스트: ${sessionScope.userEntity.username} 님</div>
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>
                             <c:otherwise>
