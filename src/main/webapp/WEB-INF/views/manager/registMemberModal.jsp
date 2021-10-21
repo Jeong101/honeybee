@@ -15,7 +15,7 @@
           
           <input name="username" type="text" class="name" value="${sessionScope.userEntity.username}" readonly="readonly">
         </div>
-        <div class="info-attribute">닉네임</div>
+        <div class="info-attribute">닉네임(수정)</div>
         <div class="textForm">
           
           <input name="nickname" type="text" class="nickname" value="${sessionScope.userEntity.username}">
