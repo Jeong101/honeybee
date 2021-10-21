@@ -94,70 +94,43 @@
   
   .textForm {
     border-bottom: 2px solid #adadad;
-    margin: 30px;
-    padding: 10px 10px;
-  }
-  
-  
-  .clubName {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
-  }
-  
-  .pw {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
+    margin:0px 10px 25px 45px;
+    padding: 0px 10px 10px 10px;
+    width: 310px;
+
   }
   
   .name {
-    width: 100%;
+    width: 95%;
     border:none;
     outline:none;
-    color: #636e72;
+    color: #949494;
     font-size:16px;
     height:25px;
     background: none;
   }
   
   .email {
-    width: 100%;
+    width: 95%;
     border:none;
     outline:none;
-    color: #636e72;
+    color: #949494;
     font-size:16px;
     height:25px;
     background: none;
   }
   
   .nickname {
-    width: 100%;
+    width: 95%;
     border:none;
     outline:none;
-    color: #636e72;
+    color: #000000;
     font-size:16px;
     height:25px;
     background: none;
   }
   
-  .cellphoneNo {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
-  }
+  
   
   .btn {
     position:relative;
@@ -214,4 +187,15 @@
   
   .tab-content.current{
     display: inherit;
+  }
+
+  .info-attribute{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0px 0px 35px;
+    color: #34495e;
   }

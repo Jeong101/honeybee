@@ -29,7 +29,7 @@ public class UserController {
         User userEntity = userRepository.mfindByEmail(user.getEmail());
 
         if (userEntity == null) {
-
+            user.setNickname(user.getUsername());
             userRepository.save(user);
             userEntity = userRepository.mfindByEmail(user.getEmail());
             session.setAttribute("userEntity", userEntity);

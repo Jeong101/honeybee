@@ -3,22 +3,25 @@
     <div class="modal-window">
       <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
         <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                          
-        <h2>회원가입</h2>
-        <div class="textForm">
-          <input name="clubName" type="text" class="email" placeholder="회원명 입력" required>
-        </div>
-        <div>
-          <h4>회원 정보</h4>
-        </div>
+        <h2>내 정보</h2>
         
+        <div class="info-attribute">이메일</div>
           <div class="textForm">
+          
           <input name="email" type="text" class="email" value="${sessionScope.userEntity.email}" readonly="readonly">
         </div>
+        <div class="info-attribute">이름</div>
         <div class="textForm">
-          <input name="nickname" type="text" class="nickname" value="${sessionScope.userEntity.username}" readonly="readonly">
+          
+          <input name="username" type="text" class="name" value="${sessionScope.userEntity.username}" readonly="readonly">
+        </div>
+        <div class="info-attribute">닉네임</div>
+        <div class="textForm">
+          
+          <input name="nickname" type="text" class="nickname" value="${sessionScope.userEntity.username}">
         </div>
         
-        <input type="submit" class="btn" value="J O I N"/>
+        <input type="submit" class="btn" value="E D I T"/>
       </form>
       </div>
   </div>

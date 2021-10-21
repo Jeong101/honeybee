@@ -6,6 +6,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style_table9.scss">
+
+
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -43,13 +55,14 @@
                             <c:when test="${sessionScope.userEntity != null}">  
                                 <%-- 관리자한테만 표시 --%>
                                 <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1" href="javascript:openModal('modal1');">회원관리</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">회원가입</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">내 정보</a></li>
                                 
                                 <div id="name">게스트: ${sessionScope.userEntity.username} 님</div>
+                                
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>
                             <c:otherwise>
-                                <div id="customBtn" class="g-signin2" data-onsuccess="onSignIn"></div>
+                                <div id="customBtn-1" class="login-btn">가입하기</div>
                             </c:otherwise>
                         </c:choose>                        
                     </li>    
