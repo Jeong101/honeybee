@@ -12,6 +12,14 @@
         <script src="https://apis.google.com/js/api:client.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+
+
         <script>startApp();</script>
     </body>
 </html>

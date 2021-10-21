@@ -8,27 +8,126 @@
         <div class="modal_container">
 
 	<ul class="tabs">
-		<li class="tab-link current" data-tab="tab-1">메뉴_하나</li>
-		<li class="tab-link" data-tab="tab-2">메뉴_둘</li>
-		<li class="tab-link" data-tab="tab-3">메뉴_셋</li>
+		<li class="tab-link current" data-tab="tab-1">신청 회원</li>
+		<li class="tab-link" data-tab="tab-2">회원 관리</li>
 	</ul>
 
 	<div id="tab-1" class="tab-content current">
----- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ----
+		<section class="ftco-section">
+		<div class="container-box">
+			<%-- <div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+				</div>
+			</div> --%>
+			<div class="row-1">
+				<div class="col-md-12-1">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th>이름</th>
+						      <th>이메일</th>
+						      
+						      <th>닉네임</th>
+						      
+						      <th>Status</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th scope="row-1">1001</th>
+						      <td>Mark Otto</td>
+						      <td>Japan</td>
+						      
+						      <td><a href="#" class="btn-1 btn-success">Progress</a></td>
+						    </tr>
+
+						    <tr>
+						      <th scope="row-1">1001</th>
+						      <td>Mark Otto</td>
+						      <td>Japan</td>
+						      
+						      <td><a href="#" class="btn-1 btn-warning">Open</a></td>
+						    </tr>
+
+						    <tr>
+						      <th scope="row-1">1001</th>
+						      <td>Mark Otto</td>
+						      <td>Japan</td>
+						      
+						      <td><a href="#" class="btn-1 btn-danger">On hold</a></td>
+						    </tr>
+
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	</div>
 	<div id="tab-2" class="tab-content">
----- ---- ★------ ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ★-- ---- ---- ------★ ---- ---- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- ---- ★------ ---- ---- ---- ----
+		<section class="ftco-section">
+		<div class="container-box">
+			<%-- <div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+				</div>
+			</div> --%>
+			<div class="row-1">
+				<div class="col-md-12-1">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th>이름</th>
+						      <th>이메일</th>
+						      
+						      <th>닉네임</th>
+						      
+						      <th>status</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th scope="row-1">1001</th>
+						      <td>Mark Otto</td>
+						      <td>Japan</td>
+						      
+						      <td><a href="#" class="btn-1 btn-success">탈퇴</a></td>
+						    </tr>
+
+						    <tr>
+						      <th scope="row-1">1001</th>
+						      <td>Mark Otto</td>
+						      <td>Japan</td>
+						      
+						      <td><a href="#" class="btn-1 btn-warning">탈퇴</a></td>
+						    </tr>
+
+						    <tr>
+						      <th scope="row-1">1001</th>
+						      <td>Mark Otto</td>
+						      <td>Japan</td>
+						      
+						      <td><a href="#" class="btn-1 btn-danger">탈퇴</a></td>
+						    </tr>
+
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	</div>
-	<div id="tab-3" class="tab-content">
----- ★-- -------- ---- ---- ---- -★- ---- ---- -------- ---- -★- ---- ---- ---- ---- -------- ---- ---- ---- ---- ---- --★ -------- ★-- ---- ---- ---- ---- ---- -------- ---- ---- --★ ---- ---- ---- -------- ---- ---- ---- --★
-	</div>
+	
 
 </div>
         
           
         
         
-        <input type="submit" class="btn" value="J O I N"/>
+        <%-- <input type="submit" class="btn" value="J O I N"/> --%>
       </form>
       </div>
   </div>
