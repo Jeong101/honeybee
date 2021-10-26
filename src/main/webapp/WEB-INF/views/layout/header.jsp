@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-        <%@include file="../manager/registMemberModal.jsp"%>
+        <%@include file="../manager/editMemberModal.jsp"%>
   <%@include file="../manager/manageMemberModal.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -54,10 +54,14 @@
                         <c:choose>
                             <c:when test="${sessionScope.userEntity != null}">  
                                 <%-- 관리자한테만 표시 --%>
+                                <c:choose>
+                                <c:when test="${sessionScope.userEntity.member==2}">
                                 <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1" href="javascript:openModal('modal1');">회원관리</a></li>
+                                </c:when>
+                                </c:choose>
                                 <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">내 정보</a></li>
                                 
-                                <div id="name">게스트: ${sessionScope.userEntity.username} 님</div>
+                                <div id="name">${sessionScope.userEntity.username} 님</div>
                                 
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>
                             </c:when>
@@ -106,9 +110,15 @@
                             <li class="nav-item"><a class="menu-style" href="#skills">Skills</a></li>
                             <li class="nav-item"><a class="menu-style" href="#interests">Interests</a></li>
                             <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li> --%>
+                           
                             <c:forEach var="users" items="${usersEntity}">
-                                <li class="nav-item"><a class="menu-style" href="#awards">${users.username}</a></li>
+                             <c:choose>
+                            <c:when test="${users.member==1}">
+                                <li class="nav-item"><a class="menu-style" href="#awards">${users.nickname}</a></li>
+                                </c:when>
+                            </c:choose>
                             </c:forEach>
+                            
                         </ul>
                     </div>
                 </div>  <!-- end navbar-collapse-->

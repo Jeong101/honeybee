@@ -9,6 +9,7 @@ import com.portfolio.honeybee.domain.user.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +31,9 @@ public class UserController {
 
         if (userEntity == null) {
             user.setNickname(user.getUsername());
+            if (user.getEmail().equals("climbhoneybee5sound@gmail.com")) {
+                user.setMember(2);
+            }
             userRepository.save(user);
             userEntity = userRepository.mfindByEmail(user.getEmail());
             session.setAttribute("userEntity", userEntity);
@@ -42,8 +46,9 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("usersEntity", userRepository.findAll());
+    public String home(Model users) {
+        users.addAttribute("usersEntity", userRepository.userList());
+
         return "index";
     }
 
@@ -53,4 +58,22 @@ public class UserController {
         return "redirect:/";
     }
 
+    @PostMapping("/doEdit/{id}")
+    public String doJoin(@PathVariable int id, String nickname) {
+        User editUser = userRepository.findById(id).get();
+        editUser.setNickname(nickname);
+        userRepository.save(editUser);
+        session.setAttribute("userEntity", editUser);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/admitMember/{id}")
+    public String admitMember(@PathVariable int id) {
+        User admitUser = userRepository.findById(id).get();
+        admitUser.setMember(1);
+        userRepository.save(admitUser);
+
+        return "redirect:/";
+    }
 }

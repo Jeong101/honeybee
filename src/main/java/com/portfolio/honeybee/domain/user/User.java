@@ -22,7 +22,8 @@ public class User {
 
     private String nickname;
 
-    @Column(columnDefinition = "tinyint(1) default 0")
-    private boolean member; // 멤버 등급
+    // 0:게스트 1:회원 2:관리자
+    @Column(columnDefinition = "tinyint(1)")
+    private int member = 0; // 멤버 등급
 
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   <div id="modal" class="modal-overlay">
     <div class="modal-window">
-      <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
+      <form action="/doEdit/${sessionScope.userEntity.id}" method="POST" class="joinForm">
         <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                          
         <h2>내 정보</h2>
         

@@ -34,29 +34,21 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						    <tr>
-						      <th scope="row-1">1001</th>
-						      <td>Mark Otto</td>
-						      <td>Japan</td>
+							<c:forEach var="users" items="${usersEntity}">
+							<c:choose>
+							  <c:when test = "${users.member==0}">
+                                <tr>
+						      <th scope="row-1">${users.username}</th>
+						      <td>${users.email}</td>
+						      <td>${users.nickname}</td>
 						      
-						      <td><a href="#" class="btn-1 btn-success">Progress</a></td>
+						      <td><a href="/admitMember/${users.id}" class="btn-1 btn-success">가입</a></td>
 						    </tr>
+							</c:when>
+							  </c:choose>
+                            </c:forEach>
 
-						    <tr>
-						      <th scope="row-1">1001</th>
-						      <td>Mark Otto</td>
-						      <td>Japan</td>
-						      
-						      <td><a href="#" class="btn-1 btn-warning">Open</a></td>
-						    </tr>
-
-						    <tr>
-						      <th scope="row-1">1001</th>
-						      <td>Mark Otto</td>
-						      <td>Japan</td>
-						      
-						      <td><a href="#" class="btn-1 btn-danger">On hold</a></td>
-						    </tr>
+						    
 
 						  </tbody>
 						</table>
@@ -88,29 +80,21 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						    <tr>
-						      <th scope="row-1">1001</th>
-						      <td>Mark Otto</td>
-						      <td>Japan</td>
+							<c:forEach var="users" items="${usersEntity}">
+							<c:choose>
+							  <c:when test = "${users.member==1}">
+                                <tr>
+						      <th scope="row-1">${users.username}</th>
+						      <td>${users.email}</td>
+						      <td>${users.nickname}</td>
 						      
 						      <td><a href="#" class="btn-1 btn-success">탈퇴</a></td>
 						    </tr>
+							</c:when>
+							  </c:choose>
+                            </c:forEach>
 
-						    <tr>
-						      <th scope="row-1">1001</th>
-						      <td>Mark Otto</td>
-						      <td>Japan</td>
-						      
-						      <td><a href="#" class="btn-1 btn-warning">탈퇴</a></td>
-						    </tr>
-
-						    <tr>
-						      <th scope="row-1">1001</th>
-						      <td>Mark Otto</td>
-						      <td>Japan</td>
-						      
-						      <td><a href="#" class="btn-1 btn-danger">탈퇴</a></td>
-						    </tr>
+						    
 
 						  </tbody>
 						</table>
