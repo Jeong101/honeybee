@@ -102,7 +102,7 @@
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <div>
+                    <div id="member_list">
                         <ul class="navbar-nav">
                             <%-- <li class="nav-item"><a class="menu-style" href="#about">About</a></li>
                             <li class="nav-item"><a class="menu-style" href="#experience">Experience</a></li>

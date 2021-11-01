@@ -69,13 +69,77 @@ window.addEventListener("keyup", e => {
 $(document).ready(function(){
 	
 	$('ul.tabs li').click(function(){
+        
 		var tab_id = $(this).attr('data-tab');
-
+        
 		$('ul.tabs li').removeClass('current');
 		$('.tab-content').removeClass('current');
 
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
+
+        // if(tab_id === "tab-2"){
+        //     $('#tab-2').load(location.href + ' #tab-2');
+        // }
 	})
 
 })
+
+
+async function deleteMember(id){
+    event.preventDefault();
+    let response = await fetch("/deleteMember/"+id, {
+        method: "delete"
+    });
+    
+    let parseResponse = await response.text();
+    
+    if(parseResponse === "ok"){
+        //location.reload();
+        let deleteEL = document.querySelector("#member-"+id);
+        deleteEL.remove();
+        console.log(deleteEL);
+    }
+}
+
+async function admitMember(id){
+    event.preventDefault();
+    let response = await fetch("/admitMember/"+id, {
+        method: "get"
+    });
+    
+    let parseResponse = await response.text();
+    
+    if(parseResponse === "ok"){
+        //location.reload();
+        let admitEl = document.querySelector("#admit-"+id);
+        admitEl.remove();
+        console.log(deleteEL);
+        $('#member_list').load(location.href + ' #member_list');
+    }
+}
+
+// $('#admit-btn').on('click',async function(){
+//     let response = await fetch("/admitMember/"+id, {
+//         method: "get"
+//     });
+    
+//     let form = document.modalForm;
+//     let variable = form.admit-btn.value;
+//     alert(variable);
+    
+//     let parseResponse = await response.text();
+    
+//     if(parseResponse === "ok"){
+//         //location.reload();
+//         let admitEl = document.querySelector("#admit-"+id);
+//         admitEl.remove();
+//         console.log(deleteEL);
+//         $('#member_list').load(location.href + ' #member_list');
+//     }
+// })
+
+// $('#member-tab').on('click', function(){
+//     //                                # 앞에 띄어쓰기 안하면 전체 새로고침 됨
+//     $('#tab-2').load(location.href + ' #tab-2');
+// })

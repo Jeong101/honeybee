@@ -65,3 +65,5 @@
     function home(){
       location.href="/";
     }
+
+  

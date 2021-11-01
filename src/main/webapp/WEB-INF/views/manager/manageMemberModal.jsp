@@ -37,12 +37,12 @@
 							<c:forEach var="users" items="${usersEntity}">
 							<c:choose>
 							  <c:when test = "${users.member==0}">
-                                <tr>
+                                <tr id="admit-${users.id}">
 						      <th scope="row-1">${users.username}</th>
 						      <td>${users.email}</td>
 						      <td>${users.nickname}</td>
-						      
-						      <td><a href="/admitMember/${users.id}" class="btn-1 btn-success">가입</a></td>
+						       <%--value="${users.id}"  --%>
+						      <td><button class="btn-1  btn-success" id="admit-btn" onclick="admitMember(${users.id})">가입</button></td>
 						    </tr>
 							</c:when>
 							  </c:choose>
@@ -83,13 +83,13 @@
 							<c:forEach var="users" items="${usersEntity}">
 							<c:choose>
 							  <c:when test = "${users.member==1}">
-                                <tr>
-						      <th scope="row-1">${users.username}</th>
-						      <td>${users.email}</td>
-						      <td>${users.nickname}</td>
+                            	<tr id="member-${users.id}">
+									<th scope="row-1">${users.username}</th>
+									<td>${users.email}</td>
+									<td>${users.nickname}</td>
 						      
-						      <td><a href="#" class="btn-1 btn-success" onclick="deleteMember();">탈퇴</a></td>
-						    </tr>
+						      		<td><button class="btn-1 btn-success" onclick="deleteMember(${users.id})">탈퇴</button></td>
+						    	</tr>
 							</c:when>
 							  </c:choose>
                             </c:forEach>

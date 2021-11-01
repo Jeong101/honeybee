@@ -8,6 +8,7 @@ import com.portfolio.honeybee.domain.user.User;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,13 +69,21 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/admitMember/{id}")
-    public String admitMember(@PathVariable int id) {
+    @DeleteMapping("/deleteMember/{id}")
+    public @ResponseBody String deleteMember(@PathVariable int id) {
+
+        userRepository.deleteById(id);
+
+        return "ok";
+    }
+
+    @GetMapping("admitMember/{id}")
+    public @ResponseBody String admitMember(@PathVariable int id) {
         User admitUser = userRepository.findById(id).get();
         admitUser.setMember(1);
         userRepository.save(admitUser);
 
-        return "redirect:/";
+        return "ok";
     }
 
 }
