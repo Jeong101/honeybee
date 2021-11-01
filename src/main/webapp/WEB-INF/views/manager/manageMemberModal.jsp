@@ -88,7 +88,7 @@
 						      <td>${users.email}</td>
 						      <td>${users.nickname}</td>
 						      
-						      <td><a href="#" class="btn-1 btn-success">탈퇴</a></td>
+						      <td><a href="#" class="btn-1 btn-success" onclick="deleteMember();">탈퇴</a></td>
 						    </tr>
 							</c:when>
 							  </c:choose>
