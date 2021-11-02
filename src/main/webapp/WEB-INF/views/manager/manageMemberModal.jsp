@@ -9,7 +9,7 @@
 
 	<ul class="tabs">
 		<li class="tab-link current" data-tab="tab-1">신청 회원</li>
-		<li class="tab-link" data-tab="tab-2">회원 관리</li>
+		<li class="tab-link" data-tab="tab-2" id="manage-tab">회원 관리</li>
 	</ul>
 
 	<div id="tab-1" class="tab-content current">
@@ -68,7 +68,7 @@
 			<div class="row-1">
 				<div class="col-md-12-1">
 					<div class="table-wrap">
-						<table class="table table-striped">
+						<table class="table table-striped" id="list-table">
 						  <thead>
 						    <tr>
 						      <th>이름</th>

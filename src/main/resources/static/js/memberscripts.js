@@ -139,7 +139,7 @@ async function admitMember(id){
 //     }
 // })
 
-// $('#member-tab').on('click', function(){
-//     //                                # 앞에 띄어쓰기 안하면 전체 새로고침 됨
-//     $('#tab-2').load(location.href + ' #tab-2');
-// })
+$('#manage-tab').on('click', function(){
+    //                                # 앞에 띄어쓰기 안하면 전체 새로고침 됨
+    $('#list-table').load(location.href + ' #list-table');
+})
