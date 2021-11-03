@@ -99,6 +99,7 @@ async function deleteMember(id){
         let deleteEL = document.querySelector("#member-"+id);
         deleteEL.remove();
         console.log(deleteEL);
+        $('#member_list').load(location.href + ' #member_list');
     }
 }
 
@@ -113,9 +114,10 @@ async function admitMember(id){
     if(parseResponse === "ok"){
         //location.reload();
         let admitEl = document.querySelector("#admit-"+id);
+        $('#member_list').load(location.href + ' #member_list');
         admitEl.remove();
         console.log(deleteEL);
-        $('#member_list').load(location.href + ' #member_list');
+        
     }
 }
 

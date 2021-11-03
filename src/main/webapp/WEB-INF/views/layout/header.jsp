@@ -41,7 +41,7 @@
     
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
+            <div class="emptySpace px-4 px-lg-5">
    
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -94,13 +94,8 @@
         <div class = "body-Box">
             <!--LEFT side bar-->
             <nav class="navbar navbar-expand-lg1" id="sideNav">
-                <div class="search-Box">
-                    <form action="">
-                        <input type="text" /><input type="submit" value="🔍">
-                    </form>
-                </div> <!-- end search-Box-->
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                
+                <%-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> --%>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <div id="member_list">
                         <ul class="navbar-nav">

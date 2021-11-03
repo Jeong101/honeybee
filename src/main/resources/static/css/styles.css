@@ -4070,10 +4070,13 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   padding-left: 0;
+  align-items: flex-end;
   margin-bottom: 0;
   justify-content: flex-end;
   list-style: none;
 }
+
+
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
@@ -4092,7 +4095,7 @@ textarea.form-control-lg {
   flex-grow: 0;
   display: flex;
   
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -11573,9 +11576,13 @@ span.buttonText {
 .nav-item-hover {
   width: 120px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .nav-item-home{
   margin-right: 10px;
+}
+
+.emptySpace{
+  width:80%;
 }

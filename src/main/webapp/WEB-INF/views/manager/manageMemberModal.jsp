@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   <div id="modal1" class="modal-overlay">
-    <div class="modal-window">
+    <div class="modal-window  managemodal">
       <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
         <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                          
         <h2>회원관리</h2>
