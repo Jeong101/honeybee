@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="css/style_table9.scss">
+	<%-- <link rel="stylesheet" href="css/style_table9.css"> --%>
 
 
 
@@ -60,6 +60,7 @@
                                 </c:when>
                                 </c:choose>
                                 <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">내 정보</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="uploadPost" href="#">글쓰기</a></li>
                                 
                                 <div id="name">${sessionScope.userEntity.username} 님</div>
                                 
@@ -109,7 +110,7 @@
                             <c:forEach var="users" items="${usersEntity}">
                              <c:choose>
                             <c:when test="${users.member==1}">
-                                <li class="nav-item"><a class="menu-style" href="#awards">${users.nickname}</a></li>
+                                <li class="user-li"><a class="menu-style" href="#awards">${users.nickname}</a></li>
                                 </c:when>
                             </c:choose>
                             </c:forEach>
