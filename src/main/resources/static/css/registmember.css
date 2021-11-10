@@ -227,3 +227,8 @@
     margin: 10px 0px 0px 35px;
     color: #34495e;
   }
+
+  .table-wrap{
+    overflow: auto;
+    height: 300px;
+  }

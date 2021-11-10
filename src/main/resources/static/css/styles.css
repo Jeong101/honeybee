@@ -107,7 +107,18 @@ body {
   margin-top: calc(var(--bs-gutter-y) * -1);
   margin-right: calc(var(--bs-gutter-x) * -.5);
   margin-left: calc(var(--bs-gutter-x) * -.5);
+
+  overflow: auto;
+  height: 800px;
+  direction: rtl;
+
+  /* -ms-overflow-style: none; */
 }
+
+.row::-webkit-scrollbar{
+  display: none;
+}
+
 .row > * {
   flex-shrink: 0;
   width: 100%;
@@ -572,7 +583,7 @@ body {
 
 .header-Box{
   display: flex;
-  height:20rem;
+  height:10rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -824,6 +835,7 @@ body {
   padding-right: 1.5rem !important;
   padding-left: 1.5rem !important;
   display:flex;
+
 }
 
 .py-5 {
@@ -991,3 +1003,4 @@ span.buttonText {
 .emptySpace{
   width:80%;
 }
+
