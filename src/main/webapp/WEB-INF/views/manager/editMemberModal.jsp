@@ -2,7 +2,7 @@
 
   <div id="modal" class="modal-overlay">
   
-    <div class="modal-window">
+    <div class="modal-window myInfoModal">
     
       <form action="/doEdit/${sessionScope.userEntity.id}" method="POST" class="joinForm">
   <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                

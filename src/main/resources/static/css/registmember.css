@@ -17,6 +17,14 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.myInfoModal{
+  width: 400px;
+}
+
+.manageModal{
+  width: 600px;
+}
+
 
 .modal-window {
   background: hsl(203, 75%, 94%);
@@ -25,7 +33,7 @@
   -webkit-backdrop-filter: blur( 13.5px );
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
-  width: 400px;
+  /* width: 400px; */
   height: 500px;
   /* width:25%;
   height:50%; */
