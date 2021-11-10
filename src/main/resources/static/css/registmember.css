@@ -90,7 +90,7 @@
   
   .joinForm {
     position:absolute;
-    width:400px;
+    width:600px;
     height:400px;
     padding: 30px, 20px;
     background-color:transparent;
@@ -176,6 +176,9 @@
   }
  
   ul.tabs{
+    display: flex;
+    justify-content: center;
+    /* width: 49%; */
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -186,6 +189,7 @@
     display: inline-block;
     padding: 10px 15px;
     cursor: pointer;
+    font-weight: 700;
   }
   
   ul.tabs li.current{
@@ -195,8 +199,10 @@
   
   .tab-content{
     display: none;
-    background: #ededed;
-    padding: 15px;
+    background: transparent;
+    /* padding: 15px; */
+    margin: 15px 15px 15px 30px;
+    width: 550px;
   }
   
   .tab-content.current{
