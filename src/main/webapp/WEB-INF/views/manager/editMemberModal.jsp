@@ -4,7 +4,7 @@
   
     <div class="modal-window myInfoModal">
     
-      <form action="/doEdit/${sessionScope.userEntity.id}" method="POST" class="joinForm">
+      <form action="/doEdit/${sessionScope.userEntity.id}" method="POST" class="joinForm myInfoForm">
   <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                
         <h2>내 정보</h2>
         

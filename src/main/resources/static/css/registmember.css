@@ -87,10 +87,18 @@
   body {
     background-image:#34495e;
   }
+
+  .myInfoForm{
+    width: 400px;
+  }
+
+  .manageJoinForm{
+    width: 600px;
+  }
   
   .joinForm {
     position:absolute;
-    width:600px;
+    /* width:400px; */
     height:400px;
     padding: 30px, 20px;
     background-color:transparent;

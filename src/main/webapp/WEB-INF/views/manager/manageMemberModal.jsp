@@ -2,7 +2,7 @@
   <div id="modal1" class="modal-overlay">
     <div class="modal-window manageModal">
 	
-      <form action="/doJoin" method="POST" class="joinForm" onsubmit="setWindow(`createWindow`)">
+      <form action="/doJoin" method="POST" class="joinForm manageJoinForm" onsubmit="setWindow(`createWindow`)">
         <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                          
         <h2>회원관리</h2>
 
