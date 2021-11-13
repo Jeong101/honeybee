@@ -3,6 +3,7 @@
 
         <%@include file="../manager/editMemberModal.jsp"%>
   <%@include file="../manager/manageMemberModal.jsp"%>
+  <%@include file="../manager/uploadVideoModal.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,7 +61,7 @@
                                 </c:when>
                                 </c:choose>
                                 <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">내 정보</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="uploadPost" href="#">글쓰기</a></li>
+                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal2" href="javascript:openModal('modal2');">글쓰기</a></li>
                                 
                                 <div id="name">${sessionScope.userEntity.username} 님</div>
                                 

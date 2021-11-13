@@ -1,13 +1,18 @@
 
-
 function openModal(btnModal){
     switch(btnModal){
+        case "modal":
+            modal = document.getElementById("modal");
+            modal.style.display = "flex";
+            break;
+
         case "modal1":   
             modal = document.getElementById("modal1");
             modal.style.display = "flex";
             break;
-        case "modal":
-            modal = document.getElementById("modal");
+        
+        case "modal2":
+            modal = document.getElementById("modal2");
             modal.style.display = "flex";
             break;
     }

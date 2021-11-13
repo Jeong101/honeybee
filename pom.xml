@@ -2,20 +2,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
+	<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.portfolio</groupId>
 	<artifactId>honeybee</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>honeybee</name>
 	<description>Demo project for Spring Boot</description>
+
 	<properties>
+		<project.youtube.version>v3-rev24-1.13.2-beta</project.youtube.version>
+   		<project.http.version>1.13.1-beta</project.http.version>
+   		<project.oauth.version>1.13.1-beta</project.oauth.version>
+   		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
 	</properties>
+
+	<repositories>
+    <repository>
+      <id>google-api-services</id>
+      <url>http://google-api-client-libraries.appspot.com/mavenrepo</url>
+    </repository>
+  </repositories>
+
 	<dependencies> 
 <dependency>
 
@@ -73,6 +88,23 @@
 			<scope>test</scope>
 		</dependency>
 
+<dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-youtube</artifactId>
+      <version>${project.youtube.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.http-client</groupId>
+      <artifactId>google-http-client-jackson2</artifactId>
+      <version>${project.http.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.oauth-client</groupId>
+      <artifactId>google-oauth-client-jetty</artifactId>
+      <version>${project.oauth.version}</version>
+    </dependency>
+
 	</dependencies>
 
 	<build>
@@ -89,7 +121,28 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		</plugins>
+<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <configuration>
+          <mainClass>com.google.api.services.samples.youtube.cmdline.youtube_cmdline_uploadvideo_sample.UploadVideo</mainClass>
+        </configuration>
+      </plugin>
+
+      <!-- Forces Maven to use Java 1.6 -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <compilerArgument></compilerArgument>
+        </configuration>
+      </plugin>
+			</plugins>
+      
+		
 	</build>
 
 </project>
