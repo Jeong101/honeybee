@@ -126,27 +126,20 @@ async function admitMember(id){
     }
 }
 
-// $('#admit-btn').on('click',async function(){
-//     let response = await fetch("/admitMember/"+id, {
-//         method: "get"
-//     });
-    
-//     let form = document.modalForm;
-//     let variable = form.admit-btn.value;
-//     alert(variable);
-    
-//     let parseResponse = await response.text();
-    
-//     if(parseResponse === "ok"){
-//         //location.reload();
-//         let admitEl = document.querySelector("#admit-"+id);
-//         admitEl.remove();
-//         console.log(deleteEL);
-//         $('#member_list').load(location.href + ' #member_list');
-//     }
-// })
-
 $('#manage-tab').on('click', function(){
     //                                # 앞에 띄어쓰기 안하면 전체 새로고침 됨
     $('#list-table').load(location.href + ' #list-table');
 })
+
+
+function reloadPreview(){
+    let previewEl = document.querySelector("image_container");
+    $('#image_container').load(location.href + ' #image_container');
+
+}
+
+function reloadPreviewName(){
+    let previewEl = document.querySelector("videoUpload-box");
+    $('#videoUpload-box').load(location.href + ' #videoUpload-box');
+
+}

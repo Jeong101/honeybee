@@ -5,7 +5,7 @@
     <div class="modal-window manageModal">
     
       <form action="/doEdit/${sessionScope.userEntity.id}" method="POST" class="joinForm manageJoinForm">
-        <div class="close-area"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                
+        <div class="close-area" onclick="reloadPreviewName();"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                
         <h2>동영상 업로드</h2>
         <div class="upload-box">
           <div class="postInfo-box">
@@ -28,8 +28,8 @@
           </div> <!--end postInfo-box -->
 
         <!--video Upload button and preview -->
-          <div class="videoUpload-box">
-            <input type="file" id="image" accept="video/*" onchange="setThumbnail(event);"/>
+          <div id="videoUpload-box" class="videoUpload-box">
+            <input type="file" id="image" onclick="reloadPreview();" accept="video/*" onchange="setThumbnail(event);"/>
             <div id="image_container" class="preview-box"></div>
           </div> <!-- end videoUpload-box-->
 

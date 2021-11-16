@@ -19,10 +19,12 @@
 
 .myInfoModal{
   width: 400px;
+  height: 500px;
 }
 
 .manageModal{
   width: 600px;
+  height: 600px;
 }
 
 
@@ -34,7 +36,7 @@
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   /* width: 400px; */
-  height: 500px;
+  
   /* width:25%;
   height:50%; */
   position: relative;
@@ -235,6 +237,7 @@
 
   .upload-box{
     display: flex;
+    margin-bottom: 0px;
     /* height: 100%; */
     /* width: 100%; */
   }
