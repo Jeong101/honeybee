@@ -56,13 +56,17 @@
                             <c:when test="${sessionScope.userEntity != null}">  
                                 <%-- 관리자한테만 표시 --%>
                                 <c:choose>
-                                <c:when test="${sessionScope.userEntity.member==2}">
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1" href="javascript:openModal('modal1');">회원관리</a></li>
-                                </c:when>
+                                    <c:when test="${sessionScope.userEntity.member==2}">
+                                        <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal1" href="javascript:openModal('modal1');">회원관리</a></li>
+                                    </c:when>
                                 </c:choose>
                                 <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal" href="javascript:openModal('modal');">내 정보</a></li>
-                                <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal2" href="javascript:openModal('modal2');">글쓰기</a></li>
-                                
+                                <c:choose>
+                                    <c:when test="${sessionScope.userEntity.member!=0}">
+                                        <li class="nav-item-hover"><a class="nav-link active" aria-current="page" id="btn-modal2" href="javascript:openModal('modal2');">글쓰기</a></li>
+                                    </c:when>
+                                </c:choose>
+                               
                                 <div id="name">${sessionScope.userEntity.username} 님</div>
                                 
                                 <li class="nav-item-signOut"><a class="signOut" href="#" onclick="signOut();">Sign out</a></li>

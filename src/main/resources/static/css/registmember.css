@@ -232,3 +232,41 @@
     overflow: auto;
     height: 300px;
   }
+
+  .upload-box{
+    display: flex;
+    /* height: 100%; */
+    /* width: 100%; */
+  }
+
+  .videoUpload-box{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postInfo-box{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .videoUpload-box input{
+    display: flex;
+    margin-bottom: 10px;
+    width: 235px;
+  }
+
+  .preview-box{
+    /* width: 30px; */
+    /* height: 20%; */
+    /* height: 40px; */
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .preview-box video{
+    height: 80%;
+    width: 80%;
+    margin-right: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
