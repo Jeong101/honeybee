@@ -12,7 +12,8 @@ spring:
   output:
     ansi:
       enabled: always
-
+      
+        
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     username: honeybee
@@ -23,3 +24,9 @@ spring:
     hibernate:
       ddl-auto: none #create update none
     show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+        

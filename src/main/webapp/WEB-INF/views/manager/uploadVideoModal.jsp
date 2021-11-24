@@ -3,8 +3,9 @@
   <div id="modal2" class="modal-overlay">
   
     <div class="modal-window manageModal">
-    <!--action="/upload/${sessionScope.userEntity.id}" method="POST" -->
-      <form onsubmit="fileCheck();" class="joinForm manageJoinForm" enctype="multipart/form-data">
+   
+      <%-- <form onsubmit="fileCheck();" class="joinForm manageJoinForm" enctype="multipart/form-data"> --%>
+      <form action="/upload/${sessionScope.userEntity.id}" method="POST" class="joinForm manageJoinForm" enctype="multipart/form-data">
         <div class="close-area" onclick="reloadPreviewName();"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                
         <h2>동영상 업로드</h2>
         <div class="upload-box">
@@ -22,20 +23,20 @@
 
             <div class="info-attribute">제목</div>
             <div class="textForm">
-              <input name="nickname" type="text" class="nickname" placeholder="동영상 제목을 입력하세요." required="required">
+              <input name="title" type="text" class="nickname" placeholder="동영상 제목을 입력하세요." required="required">
             </div> <!--end textForm -->
 
           </div> <!--end postInfo-box -->
 
-        <!--video Upload button and preview -->
+        <!--video Upload button and preview onchange="setThumbnail(event);"-->
           <div id="videoUpload-box" class="videoUpload-box">
-            <input type="file" id="image" onclick="reloadPreview();" accept="video/*" onchange="setThumbnail(event);"/>
+            <input type="file" name="videoPath" id="videoPath" onclick="reloadPreview();" accept="video/*" />
             <div id="image_container" class="preview-box"></div>
           </div> <!-- end videoUpload-box-->
 
         </div> <!--end upload-box -->
 
-        <input type="submit" class="btn" value="E D I T"/>
+        <input type="submit" class="btn" value="Upload"/>
       </form>
     </div>  <!--end modal-widnow -->
   </div> <!--end modal-overlay -->
@@ -51,30 +52,27 @@
       reader.readAsDataURL(event.target.files[0]); 
   } 
 
-  function fileCheck() {
-				//input file 태그.
-				var file = document.getElementById('image');
-				//파일 경로.
-				var filePath = file.value;
-        // var filePath = document.getElementById('videoPath').value=document.selection.createRange().text.toString();
-				//전체경로를 \ 나눔.
-				var filePathSplit = filePath.split('\\'); 
-				//전체경로를 \로 나눈 길이.
-				var filePathLength = filePathSplit.length;
-				//마지막 경로를 .으로 나눔.
-				var fileNameSplit = filePathSplit[filePathLength-1].split('.');
-				//파일명 : .으로 나눈 앞부분
-				var fileName = fileNameSplit[0];
-				//파일 확장자 : .으로 나눈 뒷부분
-				var fileExt = fileNameSplit[1];
-				//파일 크기
-				var fileSize = file.files[0].size;
-	
-				alert('파일명 : ' + fileName);
-        alert('파일 경로 : ' + filePath);
-				alert('파일 확장자 : ' + fileExt);
-				alert('파일 크기 : ' + fileSize);
-			}
+  // function fileCheck() {
+	// 			//input file 태그.
+	// 			// var file = document.getElementById('videoPath').files[0].name;
+	// 			// //파일 경로.
+	// 			// var filePath = file.value;
+  //       // // var filePath = document.getElementById('videoPath').value=document.selection.createRange().text.toString();
+	// 			// //전체경로를 \ 나눔.
+	// 			// var filePathSplit = file.split('\\'); 
+	// 			// //전체경로를 \로 나눈 길이.
+	// 			// var filePathLength = filePathSplit.length;
+	// 			// //마지막 경로를 .으로 나눔.
+	// 			// var fileNameSplit = filePathSplit[filePathLength-1].split('.');
+	// 			// //파일명 : .으로 나눈 앞부분
+	// 			// var fileName = fileNameSplit[0];
+	// 			// //파일 확장자 : .으로 나눈 뒷부분
+	// 			// var fileExt = fileNameSplit[1];
+	// 			// //파일 크기
+	// 			// var fileSize = file.files[0].size;
+  //       alert(document.getElementById('videoPath').value()+"파일경로");
+	// 			// alert("파일경로일거같은거"+document.getElementById('videoPath').files[0].path);
+	// 		}
   </script>
 
   

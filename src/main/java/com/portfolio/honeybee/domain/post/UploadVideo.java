@@ -101,7 +101,7 @@ public class UploadVideo {
                 clientSecrets, scopes).setCredentialStore(credentialStore).build();
 
         // Build the local server and bind it to port 9000
-        LocalServerReceiver localReceiver = new LocalServerReceiver.Builder().setPort(8080).build();
+        LocalServerReceiver localReceiver = new LocalServerReceiver.Builder().setPort(8000).build();
 
         // Authorize.
         return new AuthorizationCodeInstalledApp(flow, localReceiver).authorize("user");
@@ -113,8 +113,7 @@ public class UploadVideo {
      *
      * @param args command line args (not used).
      */
-    public static void main(String[] args) {
-
+    public void testMethod(File file) {
         // Scope required to upload to YouTube.
         List<String> scopes = Lists.newArrayList("https://www.googleapis.com/auth/youtube.upload");
 
@@ -127,7 +126,7 @@ public class UploadVideo {
                     .setApplicationName("youtube-cmdline-uploadvideo-sample").build();
 
             // We get the user selected local video file to upload.
-            File videoFile = getVideoFromUser();
+            File videoFile = file;
             System.out.println("You chose " + videoFile + " to upload.");
 
             // Add extra information to the video before uploading.
@@ -240,7 +239,7 @@ public class UploadVideo {
     /**
      * Gets the user selected local video file to upload.
      */
-    private static File getVideoFromUser() throws IOException {
+    private static File getVideoFromUser(File file) throws IOException {
         File[] listOfVideoFiles = getLocalVideoFiles();
         return getUserChoice(listOfVideoFiles);
     }
