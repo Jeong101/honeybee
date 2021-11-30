@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class Video {
     private String email;
-    private String userName;
+    private String username;
     private String title;
-    private MultipartFile videoPath;
+    private MultipartFile video;
 
 }

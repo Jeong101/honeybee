@@ -3,9 +3,30 @@
   <div id="modal2" class="modal-overlay">
   
     <div class="modal-window manageModal">
-   
+   <form action="https://honeybee5sound.s3.ap-northeast-2.amazonaws.com" method="post" enctype="multipart/form-data">
+    Key to upload: 
+    <input type="input"  name="key" value="user/user1/${filename}" /><br />
+    <input type="hidden" name="acl" value="public-read" />
+    <input type="hidden" name="success_action_redirect" value="http://honeybee5sound.s3.amazonaws.com/successful_upload.html" />
+    Content-Type: 
+    <input type="input"  name="Content-Type" value="video/mp4" /><br />
+    <input type="hidden" name="x-amz-meta-uuid" value="14365123651274" /> 
+    <input type="hidden" name="x-amz-server-side-encryption" value="AES256" /> 
+    <input type="text"   name="X-Amz-Credential" value="AKIAIOSFODNN7EXAMPLE/20151229/ap-northeast-2/s3/aws4_request" />
+    <input type="text"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
+    <input type="text"   name="X-Amz-Date" value="20151229T000000Z" />
+
+    Tags for File: 
+    <input type="input"  name="x-amz-meta-tag" value="" /><br />
+    <input type="hidden" name="Policy" value='<Base64-encoded policy string>' />
+    <input type="hidden" name="X-Amz-Signature" value="<signature-value>" />
+    File: 
+    <input type="file"   name="file" /> <br />
+    <!-- The elements after this will be ignored -->
+    <input type="submit" name="submit" value="Upload to Amazon S3" />
+  </form>
       <%-- <form onsubmit="fileCheck();" class="joinForm manageJoinForm" enctype="multipart/form-data"> --%>
-      <form action="/upload/${sessionScope.userEntity.id}" method="POST" class="joinForm manageJoinForm" enctype="multipart/form-data">
+      <%-- <form action="/upload" method="POST" class="joinForm manageJoinForm" enctype="multipart/form-data">
         <div class="close-area" onclick="reloadPreviewName();"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                
         <h2>동영상 업로드</h2>
         <div class="upload-box">
@@ -16,11 +37,11 @@
             <input name="email" type="text" class="email" value="${sessionScope.userEntity.email}" readonly="readonly">
             </div> <!--end textForm -->
             <div class="info-attribute">작성자</div>
-
+             <input type="hidden" name="x-amz-server-side-encryption" value="AES256" /> 
             <div class="textForm">
               <input name="username" type="text" class="name" value="${sessionScope.userEntity.username}" readonly="readonly">
             </div> <!--end textForm -->
-
+            
             <div class="info-attribute">제목</div>
             <div class="textForm">
               <input name="title" type="text" class="nickname" placeholder="동영상 제목을 입력하세요." required="required">
@@ -30,14 +51,14 @@
 
         <!--video Upload button and preview onchange="setThumbnail(event);"-->
           <div id="videoUpload-box" class="videoUpload-box">
-            <input type="file" name="videoPath" id="videoPath" onclick="reloadPreview();" accept="video/*" />
+            <input type="file" name="video" id="video" onclick="reloadPreview();" accept="video/*" />
             <div id="image_container" class="preview-box"></div>
           </div> <!-- end videoUpload-box-->
 
         </div> <!--end upload-box -->
 
         <input type="submit" class="btn" value="Upload"/>
-      </form>
+      </form> --%>
     </div>  <!--end modal-widnow -->
   </div> <!--end modal-overlay -->
 

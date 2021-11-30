@@ -47,6 +47,8 @@ import com.google.api.services.youtube.model.VideoSnippet;
 import com.google.api.services.youtube.model.VideoStatus;
 import com.google.common.collect.Lists;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * Demo of uploading a video to a user's account using the YouTube Data API (V3)
  * with OAuth2 for authorization.
@@ -118,6 +120,9 @@ public class UploadVideo {
         List<String> scopes = Lists.newArrayList("https://www.googleapis.com/auth/youtube.upload");
 
         try {
+            System.out.println("비디오 경로 : " + file);
+            System.out.println("OriginalFileName : " + file.getName());
+
             // Authorization.
             Credential credential = authorize(scopes);
 
@@ -127,6 +132,7 @@ public class UploadVideo {
 
             // We get the user selected local video file to upload.
             File videoFile = file;
+
             System.out.println("You chose " + videoFile + " to upload.");
 
             // Add extra information to the video before uploading.
