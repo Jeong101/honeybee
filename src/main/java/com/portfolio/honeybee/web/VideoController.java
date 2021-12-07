@@ -30,7 +30,8 @@ public class VideoController {
 
         try {
 
-            String path = "C:/Users/chox6/OneDrive/바탕 화면/climbing/test.mp4"; // 이거로 유튜브 업로드 해보기
+            // String path = "C:/Users/chox6/OneDrive/바탕 화면/climbing/test.mp4"; // 이거로 유튜브
+            // 업로드 해보기
             File file = new File(path);
             // URL videoURL = nickname.getResource().getURL();
             // File file = new File(video.getTitle() + ".mp4");
