@@ -1,12 +1,12 @@
 package com.portfolio.honeybee.domain.post;
 
 import java.io.*;
+import java.util.Optional;
 
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.google.api.client.util.Value;
-import com.google.common.base.Optional;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
