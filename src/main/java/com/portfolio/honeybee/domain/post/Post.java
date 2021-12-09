@@ -21,4 +21,6 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user; // FK
+
+    private String videoLink;
 }
