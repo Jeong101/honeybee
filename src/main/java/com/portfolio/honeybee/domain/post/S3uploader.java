@@ -1,11 +1,8 @@
 package com.portfolio.honeybee.domain.post;
 
-<<<<<<< HEAD
 import java.io.*;
 import java.util.Optional;
-=======
 import java.io.File;
->>>>>>> ca67a8d720da27a97d027a1dd5f02f7e02956978
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
@@ -14,10 +11,8 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-<<<<<<< HEAD
-import com.google.api.client.util.Value;
-=======
->>>>>>> ca67a8d720da27a97d027a1dd5f02f7e02956978
+
+import lombok.RequiredArgsConstructor;
 
 public class S3uploader {
     private static final String BUCKET_NAME = "honeybee5sound";
@@ -30,12 +25,12 @@ public class S3uploader {
         amazonS3 = new AmazonS3Client(awsCredentials);
     }
 
-    public void uploadVideos() {
-        File file = new File("C:/Users/chox6/OneDrive/바탕 화면/climbing/testVideo.mp4");
+    public void uploadVideos(File video, String title) {
+        File file = video;
         if (amazonS3 != null) {
             try {
                 PutObjectRequest putObjectRequest = new PutObjectRequest(
-                        BUCKET_NAME /* + "/sub_dir_name" sub directory */, file.getName(), file);
+                        BUCKET_NAME /* + "/sub_dir_name" sub directory */, title + ".mp4", file);
                 putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead); // file permission
                 amazonS3.putObject(putObjectRequest); // upload file
 

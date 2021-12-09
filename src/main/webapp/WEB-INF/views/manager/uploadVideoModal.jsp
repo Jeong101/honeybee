@@ -3,7 +3,7 @@
   <div id="modal2" class="modal-overlay">
   
     <div class="modal-window manageModal">
-   <form action="http://honeybee5sound.s3.amazonaws.com/" method="POST" enctype="multipart/form-data">
+   <%-- <form action="http://honeybee5sound.s3.amazonaws.com/" method="POST" enctype="multipart/form-data">
     Key to upload: 
     <input type="input"  name="key" value="honeybee/${filename}" /><br />
     <input type="hidden" name="acl" value="public-read" />
@@ -24,9 +24,9 @@
     <input type="file"   name="file" /> <br />
     <!-- The elements after this will be ignored -->
     <input type="submit" name="submit" value="Upload to Amazon S3" />
-  </form>
+  </form> --%>
       <%-- <form onsubmit="fileCheck();" class="joinForm manageJoinForm" enctype="multipart/form-data"> --%>
-      <%-- <form action="/upload" method="POST" class="joinForm manageJoinForm" enctype="multipart/form-data">
+      <form action="/upload" method="POST" class="joinForm manageJoinForm" enctype="multipart/form-data">
         <div class="close-area" onclick="reloadPreviewName();"><a class="close-btn" href="javascript:modalOff();">X</a></div>                                                                                
         <h2>동영상 업로드</h2>
         <div class="upload-box">
@@ -58,7 +58,7 @@
         </div> <!--end upload-box -->
 
         <input type="submit" class="btn" value="Upload"/>
-      </form> --%>
+      </form>
     </div>  <!--end modal-widnow -->
   </div> <!--end modal-overlay -->
 

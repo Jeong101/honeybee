@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HoneybeeApplication {
 
 	public static void main(String[] args) {
-		S3uploader test = new S3uploader();
-		test.uploadVideos();
+		// S3uploader test = new S3uploader();
+		// test.uploadVideos();
 		SpringApplication.run(HoneybeeApplication.class, args);
 	}
 

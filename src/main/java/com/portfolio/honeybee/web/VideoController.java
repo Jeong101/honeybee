@@ -8,6 +8,7 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.portfolio.honeybee.domain.post.S3uploader;
 import com.portfolio.honeybee.domain.post.UploadVideo;
 import com.portfolio.honeybee.domain.post.Video;
 
@@ -23,31 +24,20 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class VideoController {
 
-    @PostMapping("/upload/{id}")
-    public String uploadVideo(@PathVariable int id, Video video) {
-        // String videoName = video.getOriginalFilename();
-        UploadVideo uploadVideo = new UploadVideo();
+    @PostMapping("/upload")
+    public String uploadVideo(MultipartFile video, String title) {
+        S3uploader s3uploader = new S3uploader();
 
         try {
-
-            String path = "C:/Users/chox6/OneDrive/바탕 화면/climbing/test.mp4"; // 이거로 유튜브 업로드 해보기
-            File file = new File(path);
-            // URL videoURL = nickname.getResource().getURL();
-            // File file = new File(video.getTitle() + ".mp4");
-            uploadVideo.testMethod(file);
-            System.out.println("제목 : " + video.getTitle());
-
-            // System.out.println("videoName : " + videoName + "================");
-            // System.out.println("videoURL : " + videoURL + "================");
-            return "redirect:/";
-            // } catch (IOException exception) {
-            // System.out.println("videoType IOException occured");
-
-            // return "redirect:/";
-        } catch (NullPointerException exception) {
-            System.out.println("NullPointer Exception occured");
+            File file = new File(video.getOriginalFilename());
+            video.transferTo(file);
+            s3uploader.uploadVideos(file, title);
+        } catch (Exception exception) {
+            System.out.println("=======Exception===========");
+            System.out.println(exception.getMessage());
             return "redirect:/";
         }
 
+        return "redirect:/";
     }
 }
