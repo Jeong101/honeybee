@@ -1,11 +1,6 @@
 package com.portfolio.honeybee.domain.post;
 
-<<<<<<< HEAD
-import java.io.*;
-import java.util.Optional;
-=======
 import java.io.File;
->>>>>>> ca67a8d720da27a97d027a1dd5f02f7e02956978
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
@@ -14,28 +9,23 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-<<<<<<< HEAD
-import com.google.api.client.util.Value;
-=======
->>>>>>> ca67a8d720da27a97d027a1dd5f02f7e02956978
 
-public class S3uploader {
-    private static final String BUCKET_NAME = "honeybee5sound";
-    private static final String ACCESS_KEY = "AKIA3JQWYBM7BGXU52GT";
-    private static final String SECRET_KEY = "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";
+public class AWSService {
+    private static final String BUCKET_NAME = "bucket_name";
+    private static final String ACCESS_KEY = "ACCESS_KEY";
+    private static final String SECRET_KEY = "SECRET_KEY";
     private AmazonS3 amazonS3;
 
-    public S3uploader() {
+    public AWSService() {
         AWSCredentials awsCredentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
         amazonS3 = new AmazonS3Client(awsCredentials);
     }
 
-    public void uploadVideos() {
-        File file = new File("C:/Users/chox6/OneDrive/바탕 화면/climbing/testVideo.mp4");
+    public void uploadFile(File file) {
         if (amazonS3 != null) {
             try {
                 PutObjectRequest putObjectRequest = new PutObjectRequest(
-                        BUCKET_NAME /* + "/sub_dir_name" sub directory */, file.getName(), file);
+                        BUCKET_NAME + "/sub_dir_name"/* sub directory */, file.getName(), file);
                 putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead); // file permission
                 amazonS3.putObject(putObjectRequest); // upload file
 
@@ -44,8 +34,6 @@ public class S3uploader {
             } finally {
                 amazonS3 = null;
             }
-
         }
-
     }
 }
