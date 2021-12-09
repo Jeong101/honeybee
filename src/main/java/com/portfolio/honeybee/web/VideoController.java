@@ -38,11 +38,25 @@ public class VideoController {
         UploadVideo uploadVideo = new UploadVideo();
         System.out.println("str : " + video);
         try {
+<<<<<<< HEAD
+
+            // String path = "C:/Users/chox6/OneDrive/바탕 화면/climbing/test.mp4"; // 이거로 유튜브
+            // 업로드 해보기
+            File file = new File(path);
+            // URL videoURL = nickname.getResource().getURL();
+            // File file = new File(video.getTitle() + ".mp4");
+            uploadVideo.testMethod(file);
+            System.out.println("제목 : " + video.getTitle());
+
+            // System.out.println("videoName : " + videoName + "================");
+            // System.out.println("videoURL : " + videoURL + "================");
+=======
             File convFile = multipartToFile(video);
             String path = "C:/Users/chox6/OneDrive/바탕 화면/climbing/test.mp4"; // 이거로 유튜브 업로드 해보기
 
             uploadVideo.testMethod(convFile);
 
+>>>>>>> 679b5e244abca26e8bd1c4b60fc99e5f9ed01b18
             return "redirect:/";
         } catch (IOException exception) {
             System.out.println("videoType IOException occured");
