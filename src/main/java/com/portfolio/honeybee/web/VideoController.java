@@ -4,35 +4,53 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.ProcessBuilder.Redirect;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import com.portfolio.honeybee.domain.post.S3uploader;
-import com.portfolio.honeybee.domain.post.UploadVideo;
-import com.portfolio.honeybee.domain.post.Video;
 
-import org.apache.commons.lang.ObjectUtils.Null;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
 
+@Service
 @RequiredArgsConstructor
 @Controller
 public class VideoController {
+    @Value("${file.absolutePath}")
+    private String absolutePath;
 
     @PostMapping("/upload")
     public String uploadVideo(@RequestParam("video") MultipartFile video, String title) {
         S3uploader s3uploader = new S3uploader();
-
+        System.out.println("ABSOLUTEPATH:" + absolutePath);
         try {
+            saveToTemp(video, title);
+            File file = s3uploader.convtoFile(video);
+
+            s3uploader.uploadVideos(file, title);
+        } catch (Exception exception) {
+            System.out.println("=======Exception===========");
+            System.out.println(exception.getMessage());
+            return "redirect:/";
+        }
+
+        return "redirect:/";
+    }
+
+    public void saveToTemp(MultipartFile video, String title) {
+        try {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyMMddhhmmss");
+            String time = sdf.format(timestamp);
             FileOutputStream fos = new FileOutputStream(
-                    "c:/portfolio/honeybee/src/main/resources/static/temp/" + video.getOriginalFilename());
+                    absolutePath + title + "_" + time + ".mp4");
             // 파일 저장할 경로 + 파일명을 파라미터로 넣고 fileOutputStream 객체 생성하고
             InputStream is = video.getInputStream();
 
@@ -49,16 +67,8 @@ public class VideoController {
                 fos.write(buffer, 0, readCount);
                 // 위에서 생성한 fileOutputStream 객체에 출력하기를 반복한다
             }
-
-            // File file = s3uploader.convtoFile(video);
-
-            // s3uploader.uploadVideos(file, title);
-        } catch (Exception exception) {
-            System.out.println("=======Exception===========");
-            System.out.println(exception.getMessage());
-            return "redirect:/";
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
-
-        return "redirect:/";
     }
 }

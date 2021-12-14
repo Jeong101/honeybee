@@ -15,14 +15,18 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.portfolio.honeybee.HoneybeeApplication;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
 
 public class S3uploader {
-    private static final String BUCKET_NAME = "honeybee5sound";
-    private static final String ACCESS_KEY = "AKIA3JQWYBM7BGXU52GT";
-    private static final String SECRET_KEY = "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";
+    @Value("${cloud.aws.s3.bucket}")
+    private static String BUCKET_NAME;
+    @Value("${cloud.aws.credentials.accessKey}")
+    private static String ACCESS_KEY;
+    @Value("${cloud.aws.credentials.secretKey}")
+    private static String SECRET_KEY;
     private AmazonS3 amazonS3;
     private String videoURL;
 

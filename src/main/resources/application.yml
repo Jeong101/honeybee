@@ -30,14 +30,5 @@ spring:
       max-file-size: 50MB
       max-request-size: 50MB
 
-cloud:
-  aws:
-    credentials:
-      accessKey: YOUR_ACCESS_KEY
-      secretKey: YOUR_SECRET_KEY
-    s3:
-      bucket: YOUR_BUCKET_NAME
-    region:
-      static: YOUR_REGION
-    stack:
-      auto: false
+file:
+  absolutePath: c:/portfolio/honeybee/src/main/resources/static/temp/
