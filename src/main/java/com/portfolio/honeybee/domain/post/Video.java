@@ -12,12 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
-@Entity
-public class Video {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; // PK
+public class Video {
 
     private String email;
     private String username;
