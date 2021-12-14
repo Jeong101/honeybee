@@ -18,6 +18,5 @@ public class Video {
     private String email;
     private String username;
     private String title;
-    private MultipartFile video;
 
 }

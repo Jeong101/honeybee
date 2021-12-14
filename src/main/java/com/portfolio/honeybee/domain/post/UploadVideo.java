@@ -115,13 +115,11 @@ public class UploadVideo {
      *
      * @param args command line args (not used).
      */
-    public void testMethod(File file) {
+    public void testMethod(String videoURL) {
         // Scope required to upload to YouTube.
         List<String> scopes = Lists.newArrayList("https://www.googleapis.com/auth/youtube.upload");
 
         try {
-            System.out.println("비디오 경로 : " + file);
-            System.out.println("OriginalFileName : " + file.getName());
 
             // Authorization.
             Credential credential = authorize(scopes);
@@ -131,9 +129,6 @@ public class UploadVideo {
                     .setApplicationName("youtube-cmdline-uploadvideo-sample").build();
 
             // We get the user selected local video file to upload.
-            File videoFile = file;
-
-            System.out.println("You chose " + videoFile + " to upload.");
 
             // Add extra information to the video before uploading.
             Video videoObjectDefiningMetadata = new Video();
@@ -173,8 +168,8 @@ public class UploadVideo {
             videoObjectDefiningMetadata.setSnippet(snippet);
 
             InputStreamContent mediaContent = new InputStreamContent(VIDEO_FILE_FORMAT,
-                    new BufferedInputStream(new FileInputStream(videoFile)));
-            mediaContent.setLength(videoFile.length());
+                    new BufferedInputStream(new FileInputStream(videoURL)));
+            // mediaContent.setLength(videoFile.length());
 
             /*
              * The upload command includes: 1. Information we want returned after file is
