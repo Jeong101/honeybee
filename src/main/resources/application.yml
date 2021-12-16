@@ -32,7 +32,3 @@ spring:
       max-request-size: 50MB
   
 
-
-file:
-  absolutePath: D:/workspace/honeybee/src/main/resources/static/temp/
-
