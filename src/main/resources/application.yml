@@ -5,7 +5,6 @@ server:
       charset: UTF-8
 
 spring:
-
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -30,5 +29,8 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
+<<<<<<< HEAD
   
 
+=======
+>>>>>>> 381f84a614870216de5a8c8f69415fd7911c497e
