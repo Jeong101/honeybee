@@ -5,6 +5,15 @@ server:
       charset: UTF-8
 
 spring:
+  application:
+    name: aws
+  profiles:
+    active:
+    - local
+  config:
+    import:
+    - classpath:/aws.yml
+
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -32,3 +41,4 @@ spring:
 
 file:
   absolutePath: c:/portfolio/honeybee/src/main/resources/static/temp/
+

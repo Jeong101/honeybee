@@ -144,6 +144,25 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>${basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/aws*.yml</include>
+					<include>**/aws*.yaml</include>
+					<include>**/aws*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>**/aws*.yml</exclude>
+					<exclude>**/aws*.yaml</exclude>
+					<exclude>**/aws*.properties</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
