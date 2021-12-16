@@ -52,7 +52,7 @@ public class S3uploader {
             try {
 
                 File video = new File(absolutePath + savedName);
-
+                System.out.println(absolutePath + savedName);
                 PutObjectRequest putObjectRequest = new PutObjectRequest(
                         BUCKET_NAME /* + "/sub_dir_name" sub directory */, savedName, video);
                 putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead); // file permission

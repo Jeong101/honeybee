@@ -42,6 +42,7 @@ public class VideoController {
         try {
             String savedName = saveToTemp(video, title);
             s3uploader.uploadVideos(savedName, absolutePath);
+            System.out.println(s3uploader.toString());
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
             System.out.println(exception.getMessage());
