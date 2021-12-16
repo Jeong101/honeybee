@@ -5,19 +5,6 @@ server:
       charset: UTF-8
 
 spring:
-  application:
-    name: aws
-  profiles:
-<<<<<<< HEAD
-    include:
-    - aws
-=======
-    active:
-    - local
-  config:
-    import:
-    - classpath:/aws.yml
->>>>>>> yongju6
 
   mvc:
     view:
@@ -47,5 +34,5 @@ spring:
 
 
 file:
-  absolutePath: c:/portfolio/honeybee/src/main/resources/static/temp/
+  absolutePath: D:/workspace/honeybee/src/main/resources/static/temp/
 
