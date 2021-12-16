@@ -35,6 +35,7 @@ public class VideoController {
     @Value("${cloud.aws.credentials.secretKey}")
     private String SECRET_KEY;
 
+    // none
     @PostMapping("/upload")
     public String uploadVideo(@RequestParam("video") MultipartFile video, String title) {
         S3uploader s3uploader = new S3uploader(BUCKET_NAME, ACCESS_KEY, SECRET_KEY);
@@ -42,6 +43,8 @@ public class VideoController {
         try {
             String savedName = saveToTemp(video, title);
             s3uploader.uploadVideos(savedName, absolutePath);
+            System.out.println(s3uploader.toString());
+            System.out.println(s3uploader.toString());
             System.out.println(s3uploader.toString());
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
