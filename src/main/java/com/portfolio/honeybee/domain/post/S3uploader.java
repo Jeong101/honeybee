@@ -16,19 +16,27 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.portfolio.honeybee.HoneybeeApplication;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.RequiredArgsConstructor;
-
+@Configuration
+@ConfigurationProperties(prefix = "aws")
 public class S3uploader {
-    @Value("${cloud.aws.s3.bucket}")
-    private static String BUCKET_NAME;
-    @Value("${cloud.aws.credentials.accessKey}")
-    private static String ACCESS_KEY;
-    @Value("${cloud.aws.credentials.secretKey}")
-    private static String SECRET_KEY;
+
+    private String BUCKET_NAME = "";
+    private String ACCESS_KEY = "";
+    private String SECRET_KEY = "";
     private AmazonS3 amazonS3;
     private String videoURL;
+
+    public S3uploader(String BUCKET_NAME, String ACCESS_KEY, String SECRET_KEY) {
+        this.BUCKET_NAME = BUCKET_NAME;
+        this.ACCESS_KEY = ACCESS_KEY;
+        this.SECRET_KEY = SECRET_KEY;
+    }
 
     public S3uploader() {
         AWSCredentials awsCredentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
