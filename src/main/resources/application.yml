@@ -5,12 +5,6 @@ server:
       charset: UTF-8
 
 spring:
-  application:
-    name: aws
-  profiles:
-    include:
-    - aws
-
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -37,6 +31,3 @@ spring:
       max-request-size: 50MB
   
 
-
-file:
-  absolutePath: c:/portfolio/honeybee/src/main/resources/static/temp/
