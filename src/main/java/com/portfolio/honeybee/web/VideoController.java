@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+@Data
 @Service
 @RequiredArgsConstructor
 @Controller
@@ -26,15 +28,20 @@ public class VideoController {
     @Value("${file.absolutePath}")
     private String absolutePath;
 
+    @Value("${cloud.aws.s3.bucket}")
+    private String BUCKET_NAME;
+    @Value("${cloud.aws.credentials.accessKey}")
+    private String ACCESS_KEY;
+    @Value("${cloud.aws.credentials.secretKey}")
+    private String SECRET_KEY;
+
     @PostMapping("/upload")
     public String uploadVideo(@RequestParam("video") MultipartFile video, String title) {
-        S3uploader s3uploader = new S3uploader();
-        System.out.println("ABSOLUTEPATH:" + absolutePath);
-        try {
-            saveToTemp(video, title);
-            File file = s3uploader.convtoFile(video);
+        S3uploader s3uploader = new S3uploader(BUCKET_NAME, ACCESS_KEY, SECRET_KEY);
 
-            s3uploader.uploadVideos(file, title);
+        try {
+            String savedName = saveToTemp(video, title);
+            s3uploader.uploadVideos(savedName, absolutePath);
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
             System.out.println(exception.getMessage());
@@ -44,18 +51,21 @@ public class VideoController {
         return "redirect:/";
     }
 
-    public void saveToTemp(MultipartFile video, String title) {
+    public String saveToTemp(MultipartFile video, String title) {
+        String savedName = "";
         try {
+
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             SimpleDateFormat sdf = new SimpleDateFormat("yyMMddhhmmss");
             String time = sdf.format(timestamp);
+
             FileOutputStream fos = new FileOutputStream(
                     absolutePath + title + "_" + time + ".mp4");
             // 파일 저장할 경로 + 파일명을 파라미터로 넣고 fileOutputStream 객체 생성하고
             InputStream is = video.getInputStream();
 
             // file로 부터 inputStream을 가져온다.
-
+            savedName = title + "_" + time + ".mp4";
             int readCount = 0;
             byte[] buffer = new byte[1024 * 1024];
             // 파일을 읽을 크기 만큼의 buffer를 생성하고
@@ -70,5 +80,6 @@ public class VideoController {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+        return savedName;
     }
 }
