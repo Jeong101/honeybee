@@ -29,10 +29,11 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+//none
 @Service
 @RequiredArgsConstructor
 public class S3uploader {
-
+    // none
     private String BUCKET_NAME;
     private String ACCESS_KEY;
     private String SECRET_KEY;
