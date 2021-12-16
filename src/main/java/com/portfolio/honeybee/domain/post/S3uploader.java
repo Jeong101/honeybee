@@ -42,15 +42,12 @@ public class S3uploader {
         this.BUCKET_NAME = BUCKET_NAME;
         this.ACCESS_KEY = ACCESS_KEY;
         this.SECRET_KEY = SECRET_KEY;
-    }
-
-    public S3uploader() {
-
         AWSCredentials awsCredentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
         amazonS3 = new AmazonS3Client(awsCredentials);
     }
 
-    public void uploadVideos(File video, String title) throws IllegalStateException, IOException {
+    public void uploadVideos(String savedName, String absolutePath) throws IllegalStateException, IOException {
+
         if (amazonS3 != null) {
             try {
 
