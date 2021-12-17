@@ -1,26 +1,31 @@
 package com.portfolio.honeybee.web;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.ListObjectsV2Request;
+import com.amazonaws.services.s3.model.ListObjectsV2Result;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.portfolio.honeybee.domain.post.S3uploader;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@Data
 @Service
 @RequiredArgsConstructor
 @Controller
@@ -35,7 +40,6 @@ public class VideoController {
     @Value("${cloud.aws.credentials.secretKey}")
     private String SECRET_KEY;
 
-    // none
     @PostMapping("/upload")
     public String uploadVideo(@RequestParam("video") MultipartFile video, String title) {
         S3uploader s3uploader = new S3uploader(BUCKET_NAME, ACCESS_KEY, SECRET_KEY);
@@ -43,9 +47,7 @@ public class VideoController {
         try {
             String savedName = saveToTemp(video, title);
             s3uploader.uploadVideos(savedName, absolutePath);
-            System.out.println(s3uploader.toString());
-            System.out.println(s3uploader.toString());
-            System.out.println(s3uploader.toString());
+            showList();
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
             System.out.println(exception.getMessage());
@@ -85,5 +87,44 @@ public class VideoController {
             ioe.printStackTrace();
         }
         return savedName;
+    }
+
+    public void showList() {
+        Regions clientRegion = Regions.DEFAULT_REGION;
+
+        try {
+            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(clientRegion)
+                    .build();
+
+            System.out.println("Listing objects");
+
+            // maxKeys is set to 2 to demonstrate the use of
+            // ListObjectsV2Result.getNextContinuationToken()
+            ListObjectsV2Request req = new ListObjectsV2Request().withBucketName("honeybee5sound").withMaxKeys(2);
+            ListObjectsV2Result result;
+
+            do {
+                result = s3Client.listObjectsV2(req);
+
+                for (S3ObjectSummary objectSummary : result.getObjectSummaries()) {
+                    System.out.printf(" - %s (size: %d)\n", objectSummary.getKey(), objectSummary.getSize());
+                }
+                // If there are more than maxKeys keys in the bucket, get a continuation token
+                // and list the next objects.
+                String token = result.getNextContinuationToken();
+                System.out.println("Next Continuation Token: " + token);
+                req.setContinuationToken(token);
+            } while (result.isTruncated());
+        } catch (AmazonServiceException e) {
+            // The call was transmitted successfully, but Amazon S3 couldn't process
+            // it, so it returned an error response.
+            e.printStackTrace();
+        } catch (SdkClientException e) {
+            // Amazon S3 couldn't be contacted for a response, or the client
+            // couldn't parse the response from Amazon S3.
+            e.printStackTrace();
+        }
     }
 }
