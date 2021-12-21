@@ -70,7 +70,7 @@ public class S3uploader {
         return file;
     }
 
-    // 버킷에 있는 오브젝트리스트
+    // 버킷에 있는 오브젝트리스트 가져오기,반환
     public List<S3ObjectSummary> showList() {
         System.out.format("Objects in S3 bucket %s:\n", BUCKET_NAME);
         final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion("ap-northeast-2").build();
