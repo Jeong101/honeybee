@@ -2,13 +2,18 @@ package com.portfolio.honeybee.domain.post;
 
 import java.io.*;
 import java.net.URISyntaxException;
+import java.util.List;
+
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ListObjectsV2Result;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -63,6 +68,18 @@ public class S3uploader {
         mFile.transferTo(file);
 
         return file;
+    }
+
+    // 버킷에 있는 오브젝트리스트
+    public List<S3ObjectSummary> showList() {
+        System.out.format("Objects in S3 bucket %s:\n", BUCKET_NAME);
+        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion("ap-northeast-2").build();
+        ListObjectsV2Result result = s3.listObjectsV2(BUCKET_NAME);
+        List<S3ObjectSummary> objects = result.getObjectSummaries();
+        for (S3ObjectSummary os : objects) {
+            System.out.println("* " + os.getKey());
+        }
+        return objects;
     }
 
 }
