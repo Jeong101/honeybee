@@ -79,6 +79,7 @@ public class S3uploader {
         for (S3ObjectSummary os : objects) {
             System.out.println("* " + os.getKey());
         }
+        // 리스트 반환
         return objects;
     }
 
