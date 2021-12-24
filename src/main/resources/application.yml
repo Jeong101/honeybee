@@ -13,24 +13,12 @@ spring:
     ansi:
       enabled: always
       
-        
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: honeybee
-    password: honeybee123
-    url: jdbc:mysql://localhost:3306/honeybee
-
   jpa:
     hibernate:
-      ddl-auto: none #create update none
+      ddl-auto: create #create update none
     show-sql: true
 
   servlet:
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
-<<<<<<< HEAD
-  
-
-=======
->>>>>>> 381f84a614870216de5a8c8f69415fd7911c497e
