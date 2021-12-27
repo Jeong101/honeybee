@@ -15,4 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query(value = "select * from user where member!=2", nativeQuery = true)
     ArrayList<User> userList();
+
+    @Query(value = "select * from user where id=:id", nativeQuery = true)
+    User user(@Param("id") int id);
 }

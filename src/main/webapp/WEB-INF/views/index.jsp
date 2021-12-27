@@ -12,7 +12,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image width:400 height:250-->
-                            <iframe width="400" height="250" src="https://honeybee5sound.s3.ap-northeast-2.amazonaws.com/vvvvv_211216034328.mp4.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <%-- <iframe width="400" height="250" src="https://honeybee5sound.s3.ap-northeast-2.amazonaws.com/vvvvv_211216034328.mp4.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --%>
                             <%-- <img class="card-img-top" src="assets/honeybee_logo.jpg" alt="..." /> --%>
                             <!-- Product details-->
                             <div class="card-body p-4">

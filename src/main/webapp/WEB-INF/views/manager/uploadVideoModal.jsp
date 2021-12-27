@@ -37,7 +37,6 @@
             <input name="email" type="text" class="email" value="${sessionScope.userEntity.email}" readonly="readonly">
             </div> <!--end textForm -->
             <div class="info-attribute">작성자</div>
-             <input type="hidden" name="x-amz-server-side-encryption" value="AES256" /> 
             <div class="textForm">
               <input name="username" type="text" class="name" value="${sessionScope.userEntity.username}" readonly="readonly">
             </div> <!--end textForm -->
