@@ -7,6 +7,9 @@ target/
 application.yml
 aws.yml
 
+### ignore temp file ###
+temp/
+
 ### STS ###
 .apt_generated
 .classpath
