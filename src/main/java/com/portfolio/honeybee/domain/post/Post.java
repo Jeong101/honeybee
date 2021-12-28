@@ -1,5 +1,6 @@
 package com.portfolio.honeybee.domain.post;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,5 +23,6 @@ public class Post {
     @JoinColumn(name = "userId")
     private User user; // FK
 
+    @Column(nullable = false)
     private String videoLink;
 }

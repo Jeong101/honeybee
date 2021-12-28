@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -16,11 +18,16 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ListObjectsV2Request;
 import com.amazonaws.services.s3.model.ListObjectsV2Result;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
+import com.portfolio.honeybee.domain.post.Post;
+import com.portfolio.honeybee.domain.post.PostRepository;
 import com.portfolio.honeybee.domain.post.S3uploader;
+import com.portfolio.honeybee.domain.user.User;
+import com.portfolio.honeybee.domain.user.UserRepository;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,6 +41,9 @@ public class VideoController {
     @Value("${file.absolutePath}")
     private String absolutePath;
 
+    private final PostRepository postRepository;
+    private final UserRepository userRepository;
+
     @Value("${cloud.aws.s3.bucket}")
     private String BUCKET_NAME;
     @Value("${cloud.aws.credentials.accessKey}")
@@ -41,13 +51,24 @@ public class VideoController {
     @Value("${cloud.aws.credentials.secretKey}")
     private String SECRET_KEY;
     // S3uploader s3uploader = new S3uploader(BUCKET_NAME, ACCESS_KEY, SECRET_KEY);
+    private final HttpSession session;
 
     @PostMapping("/upload")
     public String uploadVideo(@RequestParam("video") MultipartFile video, String title) {
         S3uploader s3uploader = new S3uploader(BUCKET_NAME, ACCESS_KEY, SECRET_KEY);
 
         try {
+
             String savedName = saveToTemp(video, title);
+
+            // db 저장
+            Post postEntity = new Post();
+            User userEntity = (User) session.getAttribute("userEntity");
+
+            postEntity.setUser(userEntity);
+            postEntity.setVideoLink(savedName);
+            postRepository.save(postEntity);
+
             s3uploader.uploadVideos(savedName, absolutePath);
             s3uploader.showList();
         } catch (Exception exception) {
