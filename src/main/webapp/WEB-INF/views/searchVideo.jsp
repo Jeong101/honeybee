@@ -8,7 +8,7 @@
             <%-- <div class="posts-Box"> --%>
             <%-- row-cols-md-3 row-cols-xl-4 --%>
             <div class="row gx-4 gx-lg-5 row-cols-5 justify-content-center"> 
-                <c:forEach var="posts" items="${postsEntity}">
+                <c:forEach var="posts" items="${userupload}">
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image width:400 height:250-->

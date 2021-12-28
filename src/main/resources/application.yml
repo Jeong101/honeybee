@@ -12,11 +12,7 @@ spring:
   output:
     ansi:
       enabled: always
-<<<<<<< HEAD
-
-=======
       
->>>>>>> d595a556f185b790e9148135e6a10f2318a3ff41
   jpa:
     hibernate:
       ddl-auto: none #create update none
@@ -26,8 +22,3 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
-<<<<<<< HEAD
-  
-
-=======
->>>>>>> d595a556f185b790e9148135e6a10f2318a3ff41

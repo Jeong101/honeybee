@@ -1,9 +1,10 @@
 package com.portfolio.honeybee.web;
 
+import javax.persistence.PostRemove;
 import javax.servlet.http.HttpSession;
 
 import com.portfolio.honeybee.domain.user.UserRepository;
-
+import com.portfolio.honeybee.domain.post.PostRepository;
 import com.portfolio.honeybee.domain.user.User;
 
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ public class UserController {
 
     private final HttpSession session;
     private final UserRepository userRepository;
+    private final PostRepository postRepository;
 
     // private final Session session;
 
@@ -50,6 +52,7 @@ public class UserController {
     public String home(Model users) {
         users.addAttribute("usersEntity", userRepository.userList());
 
+        users.addAttribute("postsEntity", postRepository.postList());
         return "index";
     }
 
@@ -84,6 +87,12 @@ public class UserController {
         userRepository.save(admitUser);
 
         return "ok";
+    }
+
+    @GetMapping("/upload/user/{id}")
+    public String searchVideo(@PathVariable int id, Model posts) {
+        posts.addAttribute("userupload", postRepository.userUpload(id));
+        return "searchVideo";
     }
 
 }

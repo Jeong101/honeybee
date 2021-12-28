@@ -115,7 +115,7 @@
                             <c:forEach var="users" items="${usersEntity}">
                              <c:choose>
                             <c:when test="${users.member==1}">
-                                <li class="user-li"><a class="menu-style" href="#awards">${users.nickname}</a></li>
+                                <li class="user-li"><a class="menu-style" href="/upload/user/${users.id}">${users.nickname}</a></li>
                                 </c:when>
                             </c:choose>
                             </c:forEach>

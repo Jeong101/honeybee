@@ -1,5 +1,7 @@
 package com.portfolio.honeybee.domain.post;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import com.portfolio.honeybee.domain.user.User;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.Data;
 
@@ -24,5 +28,10 @@ public class Post {
     private User user; // FK
 
     @Column(nullable = false)
-    private String videoLink;
+    private String videolink;
+
+    @Column(nullable = false)
+    @CreationTimestamp
+    private Timestamp uploaddate;
+
 }

@@ -66,7 +66,7 @@ public class VideoController {
             User userEntity = (User) session.getAttribute("userEntity");
 
             postEntity.setUser(userEntity);
-            postEntity.setVideoLink(savedName);
+            postEntity.setVideolink(savedName);
             postRepository.save(postEntity);
 
             s3uploader.uploadVideos(savedName, absolutePath);
