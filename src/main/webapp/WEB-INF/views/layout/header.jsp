@@ -115,7 +115,10 @@
                             <c:forEach var="users" items="${usersEntity}">
                              <c:choose>
                             <c:when test="${users.member==1}">
-                                <li class="user-li"><a class="menu-style" href="/upload/user/${users.id}">${users.nickname}</a></li>
+                                <form action="/" method="POST">
+                                <%-- <li class="user-li"><a class="menu-style" href="#">${users.nickname}</a></li> --%>
+                                <li class="user-li"><input name="userId" class="menu-style" type="submit" value="${users.id}">${user.nickname}</input></li>
+                                </form>
                                 </c:when>
                             </c:choose>
                             </c:forEach>

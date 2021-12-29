@@ -33,7 +33,7 @@ public class UserController {
     @PostMapping("/auth/login")
     public @ResponseBody String googleLogin(@RequestBody User user) {
         User userEntity = userRepository.mfindByEmail(user.getEmail());
-
+        session.setAttribute("userEntity", userEntity);
         if (userEntity == null) {
             user.setNickname(user.getUsername());
             if (user.getEmail().equals("climbhoneybee5sound@gmail.com")) {
@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String home(Model users, Model posts) {
+    public String home(Model users) {
         users.addAttribute("usersEntity", userRepository.userList());
 
         users.addAttribute("postsEntity", postRepository.postList());
@@ -58,10 +58,17 @@ public class UserController {
         return "index";
     }
 
+    @PostMapping("/")
+    public String usersUpload(Model posts, int userId) {
+        posts.addAttribute("usersEntity", userRepository.userList());
+        posts.addAttribute("postsEntity", postRepository.userUpload(userId));
+        return "index";
+    }
+
     @GetMapping("/upload/user/{id}")
     public String searchVideo(@PathVariable int id, Model posts) {
         posts.addAttribute("usersEntity", userRepository.userList());
-        posts.addAttribute("Entity", postRepository.userUpload(id));
+        posts.addAttribute("postsEntity", postRepository.userUpload(id));
 
         return "index";
     }
