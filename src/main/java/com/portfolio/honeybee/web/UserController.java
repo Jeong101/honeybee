@@ -2,6 +2,7 @@ package com.portfolio.honeybee.web;
 
 import javax.persistence.PostRemove;
 import javax.servlet.http.HttpSession;
+import javax.swing.text.DefaultStyledDocument.ElementSpec;
 
 import com.portfolio.honeybee.domain.user.UserRepository;
 import com.portfolio.honeybee.domain.post.PostRepository;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
@@ -44,15 +46,23 @@ public class UserController {
             session.setAttribute("userEntity", userEntity);
         }
 
-        System.out.println(session.getAttribute("userEntity"));
         return "OK";
     }
 
     @GetMapping("/")
-    public String home(Model users) {
+    public String home(Model users, Model posts) {
         users.addAttribute("usersEntity", userRepository.userList());
 
         users.addAttribute("postsEntity", postRepository.postList());
+
+        return "index";
+    }
+
+    @GetMapping("/upload/user/{id}")
+    public String searchVideo(@PathVariable int id, Model posts) {
+        posts.addAttribute("usersEntity", userRepository.userList());
+        posts.addAttribute("Entity", postRepository.userUpload(id));
+
         return "index";
     }
 
@@ -87,12 +97,6 @@ public class UserController {
         userRepository.save(admitUser);
 
         return "ok";
-    }
-
-    @GetMapping("/upload/user/{id}")
-    public String searchVideo(@PathVariable int id, Model posts) {
-        posts.addAttribute("userupload", postRepository.userUpload(id));
-        return "searchVideo";
     }
 
 }
