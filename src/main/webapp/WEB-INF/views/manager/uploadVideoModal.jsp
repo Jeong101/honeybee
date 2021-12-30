@@ -32,10 +32,10 @@
           </div> <!-- end videoUpload-box-->
 
         </div> <!--end upload-box -->
-
-        <input type="submit" class="btn" value="Upload"/>
+        <button id="btn" class ="btn" style="display:inline;">Upload</button>
+        <%-- <input type="submit" class="btn" value="Upload"/> --%>
         <div class="box">
-          <div class="loader3"></div>
+          <div id="loader3" class="loader3" style="display:none;"></div>
         </div>
       </form>
     </div>  <!--end modal-widnow -->

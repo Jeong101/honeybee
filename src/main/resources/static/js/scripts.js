@@ -69,4 +69,13 @@ function uploadbtn(){
       location.href="/";
     }
 
+    $(function (){ 
+      $("#btn").click(function (){ 
+        $("#loader3").toggle();
+        $("#btn").toggle();
+      }); 
+      });
+
+    
   
+    

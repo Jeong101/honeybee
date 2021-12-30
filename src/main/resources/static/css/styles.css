@@ -827,6 +827,8 @@ body {
   margin-bottom: 3rem !important;
   height: 350px;
   
+  display:flex;
+  justify-content: center;
 }
 
 .p-4 {
