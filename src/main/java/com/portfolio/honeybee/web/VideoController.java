@@ -1,5 +1,6 @@
 package com.portfolio.honeybee.web;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,6 +22,7 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.portfolio.honeybee.domain.post.Post;
 import com.portfolio.honeybee.domain.post.PostRepository;
 import com.portfolio.honeybee.domain.post.S3uploader;
+import com.portfolio.honeybee.domain.post.UploadVideo;
 import com.portfolio.honeybee.domain.user.User;
 import com.portfolio.honeybee.domain.user.UserRepository;
 
@@ -66,10 +68,13 @@ public class VideoController {
             User userEntity = (User) session.getAttribute("userEntity");
 
             postEntity.setUser(userEntity);
-            postEntity.setVideolink(savedName);
+            postEntity.setVideotitle(savedName);
             postRepository.save(postEntity);
 
             s3uploader.uploadVideos(savedName, absolutePath);
+            String uploader = userEntity.getNickname();
+            UploadVideo youtubeUpload = new UploadVideo();
+            youtubeUpload.youtubeUploadVideo(savedName, uploader);
             s3uploader.showList();
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
@@ -82,8 +87,16 @@ public class VideoController {
 
     public String saveToTemp(MultipartFile video, String title) {
         String savedName = "";
+        File Folder = new File(absolutePath);
         try {
+            if (!Folder.exists()) {
+                try {
+                    Folder.mkdir();
 
+                } catch (Exception e) {
+                    e.getStackTrace();
+                }
+            }
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             SimpleDateFormat sdf = new SimpleDateFormat("yyMMddhhmmss");
             String time = sdf.format(timestamp);

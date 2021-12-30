@@ -122,7 +122,7 @@ public class UploadVideo {
                         .build();
 
         // Build the local server and bind it to port 9000
-        LocalServerReceiver localReceiver = new LocalServerReceiver.Builder().setPort(8080).build();
+        LocalServerReceiver localReceiver = new LocalServerReceiver.Builder().setPort(9000).build();
 
         // Authorize.
         return new AuthorizationCodeInstalledApp(flow, localReceiver).authorize("user");
@@ -135,8 +135,8 @@ public class UploadVideo {
      *
      * @param args command line args (not used).
      */
-    public static void main(String[] args) {
-
+    public Video youtubeUploadVideo(String videoTitle, String nickname) {
+        Video video = new Video();
         // Scope required to upload to YouTube.
         List<String> scopes = Lists.newArrayList("https://www.googleapis.com/auth/youtube.upload");
         // File videoFile = new
@@ -153,7 +153,7 @@ public class UploadVideo {
             // We get the user selected local video file to upload.
             // 파일지정
             // File videoFile = getVideoFromUser();
-            File videoFile = new File("./src/main/resources/static/temp/HELLO_211217103046.mp4");
+            File videoFile = new File("./src/main/resources/static/temp/" + videoTitle);
 
             System.out.println("PATH:" + videoFile.getAbsolutePath() + "------------------");
 
@@ -182,17 +182,13 @@ public class UploadVideo {
              * and use your own standard names.
              */
             Calendar cal = Calendar.getInstance();
-            snippet.setTitle("Test Upload via Java on " + cal.getTime());
+            snippet.setTitle(videoTitle);
             snippet.setDescription(
-                    "Video uploaded via YouTube Data API V3 using the Java library " + "on " + cal.getTime());
+                    "작성자: " + nickname);
 
             // Set your keywords.
             List<String> tags = new ArrayList<String>();
-            tags.add("test");
-            tags.add("example");
-            tags.add("java");
-            tags.add("YouTube Data API V3");
-            tags.add("erase me");
+            tags.add(nickname);
             snippet.setTags(tags);
 
             // Set completed snippet to the video object.
@@ -221,7 +217,7 @@ public class UploadVideo {
              * protocol to upload
              * in data chunks.
              */
-            uploader.setDirectUploadEnabled(false);
+            uploader.setDirectUploadEnabled(true);
 
             MediaHttpUploaderProgressListener progressListener = new MediaHttpUploaderProgressListener() {
                 public void progressChanged(MediaHttpUploader uploader) throws IOException {
@@ -254,9 +250,12 @@ public class UploadVideo {
             System.out.println("\n================== Returned Video ==================\n");
             System.out.println("  - Id: " + returnedVideo.getId());
             System.out.println("  - Title: " + returnedVideo.getSnippet().getTitle());
+            // 닉네임 태그 가져오기
             System.out.println("  - Tags: " + returnedVideo.getSnippet().getTags());
             System.out.println("  - Privacy Status: " + returnedVideo.getStatus().getPrivacyStatus());
             System.out.println("  - Video Count: " + returnedVideo.getStatistics().getViewCount());
+
+            video = new Video(returnedVideo.getId(), returnedVideo.getSnippet().getTags().get(0));
 
         } catch (GoogleJsonResponseException e) {
             System.err.println("GoogleJsonResponseException code: " + e.getDetails().getCode() + " : "
@@ -269,6 +268,8 @@ public class UploadVideo {
             System.err.println("Throwable: " + t.getMessage());
             t.printStackTrace();
         }
+        
+        return video
     }
 
     /**

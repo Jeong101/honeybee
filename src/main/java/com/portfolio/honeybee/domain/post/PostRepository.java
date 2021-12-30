@@ -14,6 +14,6 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     @Query(value = "select * from post where user_id = :id", nativeQuery = true)
     List<Post> userUpload(@Param("id") int id);
 
-    @Query(value = "delete * from post where user_id = :id", nativeQuery = true)
-    List<Post> deleteUserUpload(@Param("id") int id);
+    @Query(value = "delete from post where user_id = :id", nativeQuery = true)
+    List<Post> deleteUserPosts(@Param("id") int id);
 }
