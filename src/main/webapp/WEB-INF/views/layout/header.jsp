@@ -1,23 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-        <%@include file="../manager/editMemberModal.jsp"%>
-  <%@include file="../manager/manageMemberModal.jsp"%>
-  <%@include file="../manager/uploadVideoModal.jsp"%>
+    <%@include file="../manager/editMemberModal.jsp"%>
+    <%@include file="../manager/manageMemberModal.jsp"%>
+    <%@include file="../manager/uploadVideoModal.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
+	    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	
-
-
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -31,10 +23,10 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
         <link href="/css/registmember.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     </head>
 
     
@@ -105,19 +97,14 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <div id="member_list">
                         <ul class="navbar-nav">
-                            <%-- <li class="nav-item"><a class="menu-style" href="#about">About</a></li>
-                            <li class="nav-item"><a class="menu-style" href="#experience">Experience</a></li>
-                            <li class="nav-item"><a class="menu-style" href="#education">Education</a></li>
-                            <li class="nav-item"><a class="menu-style" href="#skills">Skills</a></li>
-                            <li class="nav-item"><a class="menu-style" href="#interests">Interests</a></li>
-                            <li class="nav-item"><a class="menu-style" href="#awards">Awards</a></li> --%>
                            
                             <c:forEach var="users" items="${usersEntity}">
                              <c:choose>
                             <c:when test="${users.member==1}">
                                 <form action="/" method="POST">
                                 <%-- <li class="user-li"><a class="menu-style" href="#">${users.nickname}</a></li> --%>
-                                <li class="user-li"><input name="userId" class="menu-style" type="submit" value="${users.id}">${user.nickname}</input></li>
+                                <li class="user-li"><input name="nickname" class="menu-style" type="submit" value="${users.nickname}"/></li>
+                                <input name="userId" type="hidden" value="${users.id}"/>
                                 </form>
                                 </c:when>
                             </c:choose>
