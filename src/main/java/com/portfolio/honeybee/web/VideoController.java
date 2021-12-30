@@ -83,6 +83,10 @@ public class VideoController {
             postRepository.save(postEntity);
 
             s3uploader.showList();
+
+            File tempFile = new File(absolutePath + savedName);
+
+            tempFile.delete();
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
             System.out.println(exception.getMessage());
