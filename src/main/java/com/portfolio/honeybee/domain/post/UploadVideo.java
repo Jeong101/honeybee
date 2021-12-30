@@ -183,7 +183,7 @@ public class UploadVideo {
              * and use your own standard names.
              */
             Calendar cal = Calendar.getInstance();
-            snippet.setTitle(videoTitle);
+            snippet.setTitle(videoTitle.substring(0, videoTitle.length() - 17));
             snippet.setDescription(
                     "작성자: " + nickname);
 
@@ -218,7 +218,7 @@ public class UploadVideo {
              * protocol to upload
              * in data chunks.
              */
-            uploader.setDirectUploadEnabled(true);
+            uploader.setDirectUploadEnabled(false);
 
             MediaHttpUploaderProgressListener progressListener = new MediaHttpUploaderProgressListener() {
                 public void progressChanged(MediaHttpUploader uploader) throws IOException {

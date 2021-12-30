@@ -65,6 +65,8 @@ public class VideoController {
 
             String savedName = saveToTemp(video, title);
 
+            String videoTitle = savedName.substring(0, savedName.length() - 17);
+
             // db 저장
             Post postEntity = new Post();
             User userEntity = (User) session.getAttribute("userEntity");
@@ -76,7 +78,7 @@ public class VideoController {
             videoDTO = youtubeUpload.youtubeUploadVideo(savedName, uploader);
 
             postEntity.setUser(userEntity);
-            postEntity.setVideotitle(savedName);
+            postEntity.setVideotitle(videoTitle);
             postEntity.setVideonum(videoDTO.getVideoID());
             postRepository.save(postEntity);
 
