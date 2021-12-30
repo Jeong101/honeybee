@@ -56,6 +56,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Video;
+
 import com.google.api.services.youtube.model.VideoSnippet;
 import com.google.api.services.youtube.model.VideoStatus;
 import com.google.common.collect.Lists;
@@ -135,8 +136,8 @@ public class UploadVideo {
      *
      * @param args command line args (not used).
      */
-    public Video youtubeUploadVideo(String videoTitle, String nickname) {
-        Video video = new Video();
+    public VideoDTO youtubeUploadVideo(String videoTitle, String nickname) {
+        VideoDTO videodto = null;
         // Scope required to upload to YouTube.
         List<String> scopes = Lists.newArrayList("https://www.googleapis.com/auth/youtube.upload");
         // File videoFile = new
@@ -255,7 +256,10 @@ public class UploadVideo {
             System.out.println("  - Privacy Status: " + returnedVideo.getStatus().getPrivacyStatus());
             System.out.println("  - Video Count: " + returnedVideo.getStatistics().getViewCount());
 
-            video = new Video(returnedVideo.getId(), returnedVideo.getSnippet().getTags().get(0));
+            String videoID = returnedVideo.getId();
+            String tag = returnedVideo.getSnippet().getTags().get(0);
+
+            videodto = new VideoDTO(videoID, tag);
 
         } catch (GoogleJsonResponseException e) {
             System.err.println("GoogleJsonResponseException code: " + e.getDetails().getCode() + " : "
@@ -268,8 +272,8 @@ public class UploadVideo {
             System.err.println("Throwable: " + t.getMessage());
             t.printStackTrace();
         }
-        
-        return video
+
+        return videodto;
     }
 
     /**
