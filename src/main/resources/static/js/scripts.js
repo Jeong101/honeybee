@@ -5,6 +5,10 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+function uploadbtn(){
+  
+}
   
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();

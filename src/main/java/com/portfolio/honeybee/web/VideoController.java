@@ -23,6 +23,7 @@ import com.portfolio.honeybee.domain.post.Post;
 import com.portfolio.honeybee.domain.post.PostRepository;
 import com.portfolio.honeybee.domain.post.S3uploader;
 import com.portfolio.honeybee.domain.post.UploadVideo;
+import com.portfolio.honeybee.domain.post.VideoDTO;
 import com.portfolio.honeybee.domain.user.User;
 import com.portfolio.honeybee.domain.user.UserRepository;
 
@@ -54,6 +55,7 @@ public class VideoController {
     private String SECRET_KEY;
     // S3uploader s3uploader = new S3uploader(BUCKET_NAME, ACCESS_KEY, SECRET_KEY);
     private final HttpSession session;
+    private VideoDTO videoDTO;
 
     @PostMapping("/upload")
     public String uploadVideo(@RequestParam("video") MultipartFile video, String title) {
@@ -63,18 +65,23 @@ public class VideoController {
 
             String savedName = saveToTemp(video, title);
 
+            String videoTitle = savedName.substring(0, savedName.length() - 17);
+
             // db 저장
             Post postEntity = new Post();
             User userEntity = (User) session.getAttribute("userEntity");
-
-            postEntity.setUser(userEntity);
-            postEntity.setVideotitle(savedName);
-            postRepository.save(postEntity);
-
             s3uploader.uploadVideos(savedName, absolutePath);
+
             String uploader = userEntity.getNickname();
             UploadVideo youtubeUpload = new UploadVideo();
-            youtubeUpload.youtubeUploadVideo(savedName, uploader);
+
+            videoDTO = youtubeUpload.youtubeUploadVideo(savedName, uploader);
+
+            postEntity.setUser(userEntity);
+            postEntity.setVideotitle(videoTitle);
+            postEntity.setVideonum(videoDTO.getVideoID());
+            postRepository.save(postEntity);
+
             s3uploader.showList();
         } catch (Exception exception) {
             System.out.println("=======Exception===========");
