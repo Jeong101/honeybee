@@ -92,6 +92,7 @@ public class UserController {
     @DeleteMapping("/deleteMember/{id}")
     public @ResponseBody String deleteMember(@PathVariable int id) {
 
+        postRepository.deleteUserPosts(id);
         userRepository.deleteById(id);
 
         return "ok";

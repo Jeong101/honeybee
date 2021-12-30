@@ -28,10 +28,12 @@ public class Post {
     private User user; // FK
 
     @Column(nullable = false)
-    private String videolink;
+    private String videotitle;
 
     @Column(nullable = false)
     @CreationTimestamp
     private Timestamp uploaddate;
+
+    private String videonum;
 
 }

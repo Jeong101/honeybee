@@ -12,7 +12,9 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image width:400 height:250-->
-                            <iframe width="400" height="250" src="https://youtu.be/1EovgzRqxUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <%-- <iframe width="560" height="315" src="https://www.youtube.com/embed/bnJfS64fJXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --%>
+                            <iframe width="400" height="250" src="https://www.youtube.com/embed/bnJfS64fJXU" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <%-- <iframe width="400" height="250" src="https://youtu.be/1EovgzRqxUg" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --%>
                             <%-- <img class="card-img-top" src="assets/honeybee_logo.jpg" alt="..." /> --%>
                             <!-- Product details-->
                             <div class="card-body p-4">
