@@ -51,28 +51,6 @@
         }; 
       reader.readAsDataURL(event.target.files[0]); 
   } 
-
-  // function fileCheck() {
-	// 			//input file 태그.
-	// 			// var file = document.getElementById('videoPath').files[0].name;
-	// 			// //파일 경로.
-	// 			// var filePath = file.value;
-  //       // // var filePath = document.getElementById('videoPath').value=document.selection.createRange().text.toString();
-	// 			// //전체경로를 \ 나눔.
-	// 			// var filePathSplit = file.split('\\'); 
-	// 			// //전체경로를 \로 나눈 길이.
-	// 			// var filePathLength = filePathSplit.length;
-	// 			// //마지막 경로를 .으로 나눔.
-	// 			// var fileNameSplit = filePathSplit[filePathLength-1].split('.');
-	// 			// //파일명 : .으로 나눈 앞부분
-	// 			// var fileName = fileNameSplit[0];
-	// 			// //파일 확장자 : .으로 나눈 뒷부분
-	// 			// var fileExt = fileNameSplit[1];
-	// 			// //파일 크기
-	// 			// var fileSize = file.files[0].size;
-  //       alert(document.getElementById('videoPath').value()+"파일경로");
-	// 			// alert("파일경로일거같은거"+document.getElementById('videoPath').files[0].path);
-	// 		}
   </script>
 
   
